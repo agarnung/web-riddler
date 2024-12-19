@@ -13,3 +13,5 @@ Resources explored in chronological order:
 7. https://zerotomastery.io/blog/build-a-javascript-game/#Building-the-User-Interface-with-HTML
 9. https://github.com/Baltasarq/legado?tab=readme-ov-file
 10. https://github.com/georgefairbairn/riddle-game/tree/master
+11. https://github.com/odysseuskir/riddle-game/tree/main
+12. https://github.com/hackclub/wizard-orpheus
