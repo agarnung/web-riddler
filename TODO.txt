@@ -16,3 +16,8 @@ todo con sprites haciendo que vibre su cara cuando aciertas, HUD oscuro, etc.
 Ester eggs: 
 1. De vez en cuando el acertijo sale en élfico
 2. ...
+
+- Usar framework Flask como en https://github.com/georgefairbairn/riddle-game/tree/master
+
+Ver el famoso riddle game Notpron:
+https://es.wikipedia.org/wiki/Notpron
