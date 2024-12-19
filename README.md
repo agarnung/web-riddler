@@ -1,6 +1,8 @@
 # game-a
 A game in process. Will be based on JavaScript, CSS and HTML, among others.
 
+One can play the game by opening the index.html or entering the static web which serves it: [Play game-a here](url)
+
 Resources explored in chronological order:
 1. https://github.com/collections/web-games
 2. https://github.com/gabrielecirulli/2048
