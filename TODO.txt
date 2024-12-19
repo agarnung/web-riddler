@@ -8,6 +8,10 @@ Se debe contar con una gigantesca BBDD de adivinanzas y soluciones
 
 Se debe contar con una gigantesca biblioteca de sinónimos fuertes y débiles
 
+Se debe poder des/habilitar un modo audio en el que Gollum lea las adivinanzas, usando una IA entrenada con su voz
+
+Ver https://chatgpt.com/c/67648904-fa04-800d-abde-8d2096aa4547
+
 El modo de juego es cíclico, lanza adivinanza, según fallas o aciertas (según él) dice una frase u otra y luego vuelve a lanzar otra adivinanza
 1. Fallas? => algo del tipo "estás a un paso más de que te devore"
 2. Aciertas? => algo del tipo "no te vas a lleva a mi tesoro",
