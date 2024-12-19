@@ -15,3 +15,4 @@ Resources explored in chronological order:
 10. https://github.com/georgefairbairn/riddle-game/tree/master
 11. https://github.com/odysseuskir/riddle-game/tree/main
 12. https://github.com/hackclub/wizard-orpheus
+13. https://github.com/marcelogdeandrade/Riddles
