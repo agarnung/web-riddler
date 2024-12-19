@@ -13,3 +13,6 @@ El modo de juego es cíclico, lanza adivinanza, según fallas o aciertas (según
 2. Aciertas? => algo del tipo "no te vas a lleva a mi tesoro",
 todo con sprites haciendo que vibre su cara cuando aciertas, HUD oscuro, etc.
 
+Ester eggs: 
+1. De vez en cuando el acertijo sale en élfico
+2. ...
