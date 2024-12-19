@@ -12,3 +12,4 @@ Resources explored in chronological order:
 6. https://www.quora.com/How-can-I-turn-my-HTML-code-into-a-public-website
 7. https://zerotomastery.io/blog/build-a-javascript-game/#Building-the-User-Interface-with-HTML
 9. https://github.com/Baltasarq/legado?tab=readme-ov-file
+10. https://github.com/georgefairbairn/riddle-game/tree/master
