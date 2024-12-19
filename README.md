@@ -11,4 +11,4 @@ Resources explored in chronological order:
 5. https://gist.github.com/jim-clark/6f1919291f6007b2c0b2c93d925d6bac
 6. https://www.quora.com/How-can-I-turn-my-HTML-code-into-a-public-website
 7. https://zerotomastery.io/blog/build-a-javascript-game/#Building-the-User-Interface-with-HTML
-8. https://github.com/qqqueiru/mula?tab=readme-ov-file, https://github.com/qqqueiru/moli
+9. https://github.com/Baltasarq/legado?tab=readme-ov-file
