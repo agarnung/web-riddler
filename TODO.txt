@@ -18,6 +18,7 @@ Ester eggs:
 2. ...
 
 - Usar framework Flask como en https://github.com/georgefairbairn/riddle-game/tree/master
+- Usar PySQL para la BBDD
 
 Ver el famoso riddle game Notpron:
 https://es.wikipedia.org/wiki/Notpron
