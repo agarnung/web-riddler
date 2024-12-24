@@ -1,6 +1,6 @@
 El juego se basaría en las adivinanzas de Gollum, con una interfaz muy artística
 
-Gollum está basado en una LLM o algo similar, pero solo lanza asivinanzas y evalúa la calidad de la respuesta del jugador
+Gollum está basado en una LLM (speech synthesis) o algo similar, pero solo lanza asivinanzas y evalúa la calidad de la respuesta del jugador
 
 Hay que entrenar por tanto una LLM para que infiera la calidad de las adivinanzas
 
