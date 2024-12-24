@@ -21,8 +21,15 @@ Ester eggs:
 1. De vez en cuando el acertijo sale en élfico
 2. ...
 
+TODO:
 - Usar framework Flask como en https://github.com/georgefairbairn/riddle-game/tree/master
 - Usar PySQL para la BBDD
 
+VER:
 Ver el famoso riddle game Notpron:
 https://es.wikipedia.org/wiki/Notpron
+
+ENLACES:
+- https://github.com/C0untFloyd/bark-gui
+- https://github.com/CorentinJ/Real-Time-Voice-Cloning?tab=readme-ov-file
+- https://www.youtube.com/watch?v=1lNOll6fNqg
