@@ -16,3 +16,4 @@ Resources explored in chronological order:
 11. https://github.com/odysseuskir/riddle-game/tree/main
 12. https://github.com/hackclub/wizard-orpheus
 13. https://github.com/marcelogdeandrade/Riddles
+14. https://github.com/apfgijon/guessword
