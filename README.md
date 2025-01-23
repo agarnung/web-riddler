@@ -1,5 +1,7 @@
-# game-a
+# web-riddler
 
+ A web game where an LLM riddles you 
+ 
 * Astro: Un framework para construir sitios web rápidos (combinado con Svelte).
 * Svelte: Un framework para construir componentes de interfaz de usuario.
 * TypeScript: Un superconjunto de JavaScript que añade tipado estático.
