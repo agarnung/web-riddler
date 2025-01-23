@@ -1,5 +1,10 @@
+<!-- src/components/Riddles.svelte -->
 <script lang="ts">
+  import Input from './Input.svelte';
+  import RiddleDisplay from './RiddleDisplay.svelte';
+  import Button from './Button.svelte';
   import { onMount } from 'svelte';
+
   let userInput = '';
   let response = '';
   let error = '';
@@ -31,10 +36,20 @@
 
 <div class="container">
   <h1>Riddles</h1>
-  <div class="riddle">{riddle}</div>
-  <textarea bind:value={userInput} placeholder="Write your answer..."></textarea>
-  <button on:click={evaluateAnswer}>Submit</button>
 
+  <!-- Riddle Display Component -->
+  <RiddleDisplay {riddle} />
+
+  <!-- Input Component -->
+  <Input bind:userInput={userInput} />
+
+  <!-- Button Component -->
+  <Button
+    handleSend={evaluateAnswer}
+    isDisabled={!userInput.trim()}
+  />
+
+  <!-- Display Response or Error -->
   {#if response}
     <p class="response-text">Model response: {response}</p>
   {/if}
@@ -45,12 +60,6 @@
 </div>
 
 <style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
   .container {
     width: 100%;
     max-width: 600px;
@@ -66,45 +75,6 @@
     font-size: 2em;
     margin-bottom: 20px;
     color: #333;
-  }
-
-  .riddle {
-    font-size: 1.3em;
-    margin-bottom: 15px;
-    font-weight: bold;
-    color: #444;
-  }
-
-  textarea {
-    width: 100%;
-    height: 120px;
-    padding: 10px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    font-size: 1em;
-    color: #333;
-    resize: none;
-    margin-bottom: 20px;
-  }
-
-  textarea:focus {
-    border-color: #6c5ce7;
-    outline: none;
-  }
-
-  button {
-    padding: 10px 20px;
-    background-color: #6c5ce7;
-    color: white;
-    font-size: 1.1em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  button:hover {
-    background-color: #5b21b6;
   }
 
   .response-text, .error-text {
