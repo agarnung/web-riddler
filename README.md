@@ -84,7 +84,7 @@ src/
 * Deploy the app: ```vercel deploy```. This generates a URL where the web app can be accessed remotely. On Vercel’s web interface, under Settings => Domain, you can see the domain name, e.g.: ```web-riddler.vercel.app```.
 * Use **HuggingFace** by visiting their [Hub](https://huggingface.co/models) and selecting an appropriate LLM model, e.g., for analyzing text and providing feedback: [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) 
 * Create an access token on Hugging Face via Profile => Access Token => Create new token, with simple read permissions.
-* Add an API endpoint to interact with the model. In Astro, you can create an API route to handle requests.
+* Add an API endpoint to interact with the model. In Astro, you can create an API route to handle requests. To keep the key protected, Vercel integrates environment variables of the project in Settings => Environment Variables. Also, one can connect Vercel with Git repository to create a Production Deployment.
 * Make sure to have these dependencies installed: ```npm install -D typescript svelte-preprocess @sveltejs/vite-plugin-svelte @astrojs/svelte svelte```
 * Ensure that you include everything you need in ```tsconfig.json``` and ```astro.config.mjs```, for example, for Svelte and TypeScript integration.
 
