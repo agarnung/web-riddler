@@ -63,6 +63,21 @@ alejandro@pop-os:/opt/proyectos/web-riddler/$ tree -L 1
 ├── src
 └── tsconfig.json
 ```
+And the src/ folder may look something like this:
+```
+src/
+├── components/      # Svelte components
+│   ├── Header.svelte
+│   ├── Footer.svelte
+│   ├── Riddles.svelte
+├── layouts/         # General designs
+│   ├── MainLayout.astro
+├── pages/           # Main routes of the app
+│   ├── index.astro
+├── styles/          # Global styles
+│   ├── global.css
+```
+
 * Install the necessary dependencies inside the created project: ```npm install```.
 * Run the project locally to verify it works: ```npm run dev```. The Astro starter app will open in the browser at ```http://localhost:4321```
 * Configure **Vercel** for production deployment: Instalar the Vercel CLI: ```npm i -g vercel```. Connect the project to Vercel: ```vercel```. Follow the instructions (log in and link the project to your Vercel account).
@@ -70,6 +85,10 @@ alejandro@pop-os:/opt/proyectos/web-riddler/$ tree -L 1
 * Use **HuggingFace** by visiting their [Hub](https://huggingface.co/models) and selecting an appropriate LLM model, e.g., for analyzing text and providing feedback: [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) 
 * Create an access token on Hugging Face via Profile => Access Token => Create new token, with simple read permissions.
 * Add an API endpoint to interact with the model. In Astro, you can create an API route to handle requests.
+* Make sure to have these dependencies installed: ```npm install -D typescript svelte-preprocess @sveltejs/vite-plugin-svelte @astrojs/svelte svelte```
+* Ensure that you include everything you need in ```tsconfig.json``` and ```astro.config.mjs```, for example, for Svelte and TypeScript integration.
+
+You can now start customizing the project template to add the desired functionality and Svelte components, referring to the documentation of these tools.
 
 When making changes to the project, once you are satisfied and have tested locally using: ```npm run dev```
 

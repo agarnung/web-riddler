@@ -9,6 +9,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.1.9"
+    "@astrojs/svelte": "^7.0.4",
+    "astro": "^5.1.9",
+    "svelte": "^5.19.2"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "svelte-preprocess": "^6.0.3",
+    "typescript": "^5.7.3"
   }
 }
