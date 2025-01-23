@@ -12,6 +12,7 @@
 * [VS Code](https://code.visualstudio.com/docs/setup/setup-overview).
 
 # Pasos:
+
 1. Clonar el proyecto y acceder a la raíz 
 ```bash
 cd /opt/guessword
@@ -42,6 +43,27 @@ Aparte de levantar la web en local, para que sae accesible desde cualquier lugar
 	- Render: Similar a Heroku, pero con precios más competitivos.
 - Plataformas de Contenedores
 	- Docker + Kubernetes: Si tu proyecto es más complejo o necesitas control total.
+
+# Crear una app como esta desde cero?
+* Tener instalado: Node.js y Git
+* Tener una cuenta de Vercekl y Hugging Face
+* Inicializar un proyecto astro dentro de la carpeta del repositorio: ```npm create astro@latest```. Seguimos los pasos típicos y tendremos un árbol de este tipo:
+```
+alejandro@pop-os:/opt/proyectos/web-riddler/$ tree -L 1
+.
+├── astro.config.mjs
+├── node_modules
+├── package.json
+├── package-lock.json
+├── public
+├── README.md
+├── src
+└── tsconfig.json
+```
+* Instalar dependencias necesarias dentro del proyecto creado: ```npm install```
+* Ejecutar el proyecto en local para ver que funciona: ```npm run dev```. Si sí, se abrirá la aplicación incial de Astro entrando desde el navegador en ```http://localhost:4321```
+* Configurar Vercel para el despligue a producción... Instalar la CLI de Vercel: ```npm i -g vercel```. Conectar nuestro proyecto a Vercel: ```vercel```. Seguir las instrucciones (inciiar sesión y vincular proyecto con cuenta de Vercel).
+* Desplegar la aplicación: ```vercel deploy```. Esto generará una URL donde se podrá acceder a la aplicación web en remoto. Desde la web de Vercel, en Configuración => Dominio, se puede ver el nombre del dominio al que acceder para entrar en la web, e.g. ```web-riddler.vercel.app```.
 
 # Extensiones de VSCode:
 * svelte
