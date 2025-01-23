@@ -1,56 +1,56 @@
 # web-riddler
 
- A web game where an LLM riddles you.
+A web game where an LLM riddles you.
 
- __In progress..._
- 
-* Astro: Un framework para construir sitios web rápidos (combinado con Svelte).
-* Svelte: Un framework para construir componentes de interfaz de usuario.
-* TypeScript: Un superconjunto de JavaScript que añade tipado estático.
-* Tailwind CSS: Un framework CSS para estilos utilitarios.
-* API personalizada: Contiene una API en src/pages/api/embedding.ts.
+__In progress...__
 
-# Requisitos:
-* [Node.js](https://nodejs.org/es) ([para Linux](https://nodejs.org/en/download)) (versión recomendada: 16 o superior).
-* [npm](https://docs.npmjs.com/cli/v8/commands/npm-install) o [yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable): Administradores de paquetes que vienen con Node.js.
+* **Astro**: A framework for building fast websites (combined with Svelte).
+* **Svelte**: A framework for building user interface components.
+* **TypeScript**: A superset of JavaScript that adds static typing.
+* **Tailwind CSS**: A utility-first CSS framework.
+* **Custom API**: Contains an API in `src/pages/api/embedding.ts`.
+
+# Requirements:
+* [Node.js](https://nodejs.org/) ([for Linux](https://nodejs.org/en/download)) (recommended version: 16 or higher).
+* [npm](https://docs.npmjs.com/cli/v8/commands/npm-install) or [yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable): Package managers included with Node.js.
 * [VS Code](https://code.visualstudio.com/docs/setup/setup-overview).
 
-# Pasos:
+# Steps:
 
-1. Clonar el proyecto y acceder a la raíz 
-```bash
-cd /opt/guessword
+1. Clone the project and navigate to the root directory:  
+   ```bash
+   cd /opt/guessword
 ```
-2. Instalar las dependencias definidas en el ```package.json```, desde la raíz del proyecto:
+2. Install dependencies defined in the ```package.json``` file from the project root:
 ```bash
 npm install
 ```
-3. Levantar en ```http://localhost:3000``` el sevidor de desarrollo de la web con Astro:
+3. Start the development web server with Astro at ```http://localhost:4321```:
 ```bash
 npx astro dev
 ```
-4. (Opcional) Construir una versión lista para producción:
+4. (Optional) Build a production-ready version:
 ```bash
 npx astro build
 ```
 
-# Opciones de hosting:
-Aparte de levantar la web en local, para que sae accesible desde cualquier lugar se necesita desplegarla en un servidor o plataforma de hosting web. Algunas opciones son:
+# Hosting Options:
+Aside from running the website locally, deploying it on a hosting platform is necessary to make it accessible from anywhere. Some hosting options include:
 
-- Plataformas de Hosting Estático (recomendado para Astro)
-	- Vercel (el usado): Optimizado para frameworks como Astro, es rápido y tiene integración automática con GitHub/GitLab.
-	- Netlify: Ideal para proyectos estáticos o con funciones serverless.
-	- GitHub Pages: Para hosting gratuito, aunque no soporta funciones serverless directamente.
-- Hosting Completo
-	- VPS (Virtual Private Server): Usar un servidor como DigitalOcean, AWS EC2, o Linode, donde se configura manualmente el entorno.
-	- Heroku, Render: Soporta tanto aplicaciones estáticas como backends dinámicos, plataformas de pago.
-- Plataformas de Contenedores
-	- Docker + Kubernetes: Totalmente autocontenido para proyectos más complejos.
+- Static Hosting Platforms (recommended for Astro)
+	- Vercel (used here): Optimized for frameworks like Astro, fast, and integrates automatically with GitHub/GitLab.
+	- Netlify: Ideal for static projects or serverless functions.
+	- GitHub Pages: For free hosting, though it doesn't directly support serverless functions.
+- Full Hosting
+	- VPS (Virtual Private Server): Use servers like DigitalOcean, AWS EC2, or Linode to manually configure the environment.
+	- Heroku, Render: Supports both static applications and dynamic backends; these are paid platforms.
+- Container Platforms
+	- Docker + Kubernetes: Fully self-contained for more complex projects.
 
-# Crear una app como esta desde cero?
-* Tener instalado: Node.js y Git
-* Tener una cuenta de Vercekl y Hugging Face
-* Inicializar un proyecto astro dentro de la carpeta del repositorio: ```npm create astro@latest```. Seguimos los pasos típicos y tendremos un árbol de este tipo:
+# Create an App Like This from Scratch:
+* Install: Node.js and Git.
+* Have accounts on Vercel and Hugging Face.
+* Initialize an **Astro** project inside the repository folder: ```npm create astro@latest```. Follow the usual steps to create a project with a directory structure like this:
 ```
 alejandro@pop-os:/opt/proyectos/web-riddler/$ tree -L 1
 .
@@ -63,22 +63,26 @@ alejandro@pop-os:/opt/proyectos/web-riddler/$ tree -L 1
 ├── src
 └── tsconfig.json
 ```
-* Instalar dependencias necesarias dentro del proyecto creado: ```npm install```
-* Ejecutar el proyecto en local para ver que funciona: ```npm run dev```. Si sí, se abrirá la aplicación incial de Astro entrando desde el navegador en ```http://localhost:4321```
-* Configurar Vercel para el despligue a producción... Instalar la CLI de Vercel: ```npm i -g vercel```. Conectar nuestro proyecto a Vercel: ```vercel```. Seguir las instrucciones (inciiar sesión y vincular proyecto con cuenta de Vercel).
-* Desplegar la aplicación: ```vercel deploy```. Esto generará una URL donde se podrá acceder a la aplicación web en remoto. Desde la web de Vercel, en Configuración => Dominio, se puede ver el nombre del dominio al que acceder para entrar en la web, e.g. ```web-riddler.vercel.app```.
-* Para usar HuggingFace
+* Install the necessary dependencies inside the created project: ```npm install```.
+* Run the project locally to verify it works: ```npm run dev```. The Astro starter app will open in the browser at ```http://localhost:4321```
+* Configure **Vercel** for production deployment: Instalar the Vercel CLI: ```npm i -g vercel```. Connect the project to Vercel: ```vercel```. Follow the instructions (log in and link the project to your Vercel account).
+* Deploy the app: ```vercel deploy```. This generates a URL where the web app can be accessed remotely. On Vercel’s web interface, under Settings => Domain, you can see the domain name, e.g.: ```web-riddler.vercel.app```.
+* Use **HuggingFace** by visiting their [Hub](https://huggingface.co/models) and selecting an appropriate LLM model, e.g., for analyzing text and providing feedback: [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) 
+* Create an access token on Hugging Face via Profile => Access Token => Create new token, with simple read permissions.
+* Add an API endpoint to interact with the model. In Astro, you can create an API route to handle requests.
 
-Si se hacen modificaciones al proyecto, una vez satisfecho habiéndolas comprobado en local con ```npm run dev```, basta con desplegar a producción de nuevo a través de Vercel, mediante ```vercel deploy --prod```, y la aplicación se actualizará en el dominio personalizado.
+When making changes to the project, once you are satisfied and have tested locally using: ```npm run dev```
 
-# Extensiones de VSCode:
-* svelte
-* svelte-preview
+You can redeploy to production with: ```vercel deploy --prod```. The app will update automatically on the custom domain.
+
+# VS Code Extensions:
+* Svelte
+* Svelte Preview
 * Tailwind CSS IntelliSense
-* Type Script
+* TypeScript
 * Astro
 
 # References:
-- https://www.youtube.com/watch?v=gUs-Sissb48&ab_channel=NetNinja
-- https://es.wikipedia.org/wiki/Notpron
+- [The Net Ninja - Astro Tutorial](https://www.youtube.com/watch?v=gUs-Sissb48&ab_channel=NetNinja)
+- [Notpron](https://es.wikipedia.org/wiki/Notpron)
 
