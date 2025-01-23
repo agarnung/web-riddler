@@ -42,11 +42,10 @@ Aparte de levantar la web en local, para que sae accesible desde cualquier lugar
 	- Netlify: Ideal para proyectos estáticos o con funciones serverless.
 	- GitHub Pages: Para hosting gratuito, aunque no soporta funciones serverless directamente.
 - Hosting Completo
-	- VPS (Virtual Private Server): Usar un servidor como DigitalOcean, AWS EC2, o Linode, donde configuras manualmente tu entorno.
-	- Heroku: Soporta tanto aplicaciones estáticas como backends dinámicos.
-	- Render: Similar a Heroku, pero con precios más competitivos.
+	- VPS (Virtual Private Server): Usar un servidor como DigitalOcean, AWS EC2, o Linode, donde se configura manualmente el entorno.
+	- Heroku, Render: Soporta tanto aplicaciones estáticas como backends dinámicos, plataformas de pago.
 - Plataformas de Contenedores
-	- Docker + Kubernetes: Si tu proyecto es más complejo o necesitas control total.
+	- Docker + Kubernetes: Totalmente autocontenido para proyectos más complejos.
 
 # Crear una app como esta desde cero?
 * Tener instalado: Node.js y Git
