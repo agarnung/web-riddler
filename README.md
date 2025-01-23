@@ -64,6 +64,9 @@ alejandro@pop-os:/opt/proyectos/web-riddler/$ tree -L 1
 * Ejecutar el proyecto en local para ver que funciona: ```npm run dev```. Si sí, se abrirá la aplicación incial de Astro entrando desde el navegador en ```http://localhost:4321```
 * Configurar Vercel para el despligue a producción... Instalar la CLI de Vercel: ```npm i -g vercel```. Conectar nuestro proyecto a Vercel: ```vercel```. Seguir las instrucciones (inciiar sesión y vincular proyecto con cuenta de Vercel).
 * Desplegar la aplicación: ```vercel deploy```. Esto generará una URL donde se podrá acceder a la aplicación web en remoto. Desde la web de Vercel, en Configuración => Dominio, se puede ver el nombre del dominio al que acceder para entrar en la web, e.g. ```web-riddler.vercel.app```.
+* Para usar HuggingFace
+
+Si se hacen modificaciones al proyecto, una vez satisfecho habiéndolas comprobado en local con ```npm run dev```, basta con desplegar a producción de nuevo a través de Vercel, mediante ```vercel deploy --prod```, y la aplicación se actualizará en el dominio personalizado.
 
 # Extensiones de VSCode:
 * svelte
