@@ -1,6 +1,8 @@
 # web-riddler
 
- A web game where an LLM riddles you 
+ A web game where an LLM riddles you.
+
+ __In progress..._
  
 * Astro: Un framework para construir sitios web rápidos (combinado con Svelte).
 * Svelte: Un framework para construir componentes de interfaz de usuario.
