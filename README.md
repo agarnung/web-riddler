@@ -52,3 +52,5 @@ Aparte de levantar la web en local, para que sae accesible desde cualquier lugar
 
 # References:
 - https://www.youtube.com/watch?v=gUs-Sissb48&ab_channel=NetNinja
+- https://es.wikipedia.org/wiki/Notpron
+
