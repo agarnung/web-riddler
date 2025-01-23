@@ -83,7 +83,7 @@ src/
 ```
 
 * Install the necessary dependencies inside the created project: ```npm install```.
-* Run the project locally to verify it works: ```npm run dev```. The Astro starter app will open in the browser at ```http://localhost:4321```. Check [this](.assets/README_astro.md).
+* Run the project locally to verify it works: ```npm run dev```. The Astro starter app will open in the browser at ```http://localhost:4321```. Check [this](./assets/README_astro.md).
 * Configure **Vercel** for production deployment: Instalar the Vercel CLI: ```npm i -g vercel```. Connect the project to Vercel: ```vercel```. Follow the instructions (log in and link the project to your Vercel account).
 * Deploy the app: ```vercel deploy```. This generates a URL where the web app can be accessed remotely. On Vercel’s web interface, under Settings => Domain, you can see the domain name, e.g.: ```web-riddler.vercel.app```.
 * Use **HuggingFace** by visiting their [Hub](https://huggingface.co/models) and selecting an appropriate LLM model, e.g., for analyzing text and providing feedback: [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) 
