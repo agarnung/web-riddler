@@ -1,5 +1,9 @@
 # web-riddler
 
+<p align="center">
+  <img src="./assets/riddler.png" alt="riddler" title="riddler" />
+</p>
+
 A web game where an LLM riddles you.
 
 __In progress...__
