@@ -22,8 +22,8 @@
   }
   
   /* Allow only letters and apostrophe */
-  function handleInput(event) {
-    const input = event.target.value;
+  function handleInput(event: Event) {
+    const input = (event.target as HTMLInputElement)?.value || '';
     const filteredInput = input.replace(/[^a-zA-Z']/g, ''); 
     value = filteredInput;
     dispatch('input', value);
@@ -36,7 +36,7 @@
     }
   }
 
-  function handleKeyPress(event) {
+  function handleKeyPress(event: KeyboardEvent) {
     if (event.key === " ") {
       event.preventDefault();  
     }
