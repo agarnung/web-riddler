@@ -1,7 +1,7 @@
 <script lang="ts">
   import Input from './Input.svelte';
   import RiddleDisplay from './RiddleDisplay.svelte';
-  import Button from './Button.svelte';
+  import ChangeButton from './ChangeButton.svelte';
   import { getRandomRiddle } from '../scripts/riddles.ts';
 
   let userInput = '';
@@ -54,10 +54,10 @@
   <!-- Input Component -->
   <Input bind:userInput={userInput} />
 
-  <!-- Button Component -->
-  <Button
-    handleSend={evaluateAnswer}
-    isDisabled={!userInput.trim()}
+  <!-- ChangeButton Component -->
+  <ChangeButton
+    handleSend={loadRiddle}
+    isDisabled={false}
   />
 
   <!-- Display Response or Error -->
