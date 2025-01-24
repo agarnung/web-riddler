@@ -1,5 +1,4 @@
-riddles =
-[
+export const riddles = [
   {
     "question": "The more you take, the more you leave behind. What am I?",
     "solution": "Footsteps",
@@ -15,10 +14,10 @@ riddles =
     "solution": "Your shadow",
     "explanation": "Your shadow will always be with you, as long as there's light, no matter where you go."
   }
-]
+];
 
 export const getRandomRiddle = () => {
   const randomRiddle = riddles[Math.floor(Math.random() * riddles.length)];
-  return randomRiddle;  
+  console.log("Riddle aleatoria seleccionada:", randomRiddle);  
+  return randomRiddle;
 };
-

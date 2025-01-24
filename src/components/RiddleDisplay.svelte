@@ -1,18 +1,19 @@
-<!-- src/components/RiddleDisplay.svelte -->
 <script lang="ts">
-  export let riddle = '';
+  export let riddle: { question: string, solution: string };
 </script>
 
-<div class="riddle">
-  {riddle}
+<div class="riddle-display">
+  <h2>{riddle.question || "No riddle available"}</h2>
 </div>
 
 <style>
-  .riddle {
-    font-size: 1.3em;
-    margin-bottom: 15px;
-    font-weight: bold;
-    color: #444;
+  .riddle-display {
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    color: #333;
   }
 </style>
 

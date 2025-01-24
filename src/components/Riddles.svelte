@@ -4,11 +4,12 @@
   import RiddleDisplay from './RiddleDisplay.svelte';
   import Button from './Button.svelte';
   import { onMount } from 'svelte';
+  import { getRandomRiddle } from '../scripts/riddles.ts';
 
   let userInput = '';
   let response = '';
   let error = '';
-  let riddle = 'Oro parece, oro no es; qué es?';
+  let riddle = { question: 'Oro parece, oro no es; qué es?', solution: 'Órono' }; 
   let exactAnswer = 'Órono';
 
   const evaluateAnswer = async () => {
@@ -32,6 +33,12 @@
       response = '';
     }
   };
+
+  // Asign a random ridle each time this component is mounted
+  onMount(() => {
+  riddle = getRandomRiddle(); 
+  console.log("Riddle obtained:", riddle);
+  });
 </script>
 
 <div class="container">
