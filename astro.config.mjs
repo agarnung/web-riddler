@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import svelte from '@astrojs/svelte';
-import vercel from '@astrojs/vercel';
+import vercelServerless from '@astrojs/vercel/serverless'; // https://github.com/withastro/astro/issues/4464
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -9,7 +9,7 @@ dotenv.config();
 export default defineConfig({
   integrations: [svelte()],
   output: 'server',
-  adapter: vercel({
+  adapter: vercelServerless({
     imageService: true, 
   }),
 });

@@ -3,11 +3,9 @@
   export let isDisabled = false;
 </script>
 
-<div>
-  <button on:click={changeRiddle} disabled={isDisabled} class="riddle-button">
-    Next Riddle
-  </button>
-</div>
+<button on:click={changeRiddle} disabled={isDisabled} class="riddle-button">
+  Next Riddle
+</button>
 
 <style>
   .riddle-button {
