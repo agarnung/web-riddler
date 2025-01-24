@@ -2,7 +2,7 @@
   import Input from './Input.svelte';
   import RiddleDisplay from './RiddleDisplay.svelte';
   import ChangeButton from './ChangeButton.svelte';
-  import { getRandomRiddle } from '../scripts/riddles.ts';
+  import { getRandomRiddle } from '../libs/riddles.ts';
 
   let userInput = '';
   let response = '';
