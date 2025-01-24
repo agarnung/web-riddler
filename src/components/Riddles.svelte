@@ -2,7 +2,7 @@
   import Input from './Input.svelte';
   import RiddleDisplay from './RiddleDisplay.svelte';
   import ChangeButton from './ChangeButton.svelte';
-  import { getRandomRiddle } from '../libs/riddles.ts';
+  import { getRandomRiddle } from '../utils/riddles.ts';
 
   let userInput = '';
   let response = '';
@@ -43,6 +43,9 @@
       response = '';
     }
   };
+  
+  
+  console.log("heeelo")
 
   // Load the riddle directly during initialization
   changeRiddle();
