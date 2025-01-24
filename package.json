@@ -12,6 +12,7 @@
     "@astrojs/svelte": "^7.0.4",
     "@astrojs/vercel": "^8.0.4",
     "astro": "^5.1.9",
+    "dotenv": "^16.4.7",
     "svelte": "^5.19.2"
   },
   "devDependencies": {

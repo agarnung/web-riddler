@@ -12,7 +12,10 @@
   const loadRiddle = () => {
     try {
       riddle = getRandomRiddle();
-      console.log('Riddle loaded:', riddle);
+      console.log('New riddle loaded:', riddle);
+      userInput = '';
+      response = '';  
+      error = '';    
     } catch (err) {
       console.error('Error loading riddle:', err);
       riddle = { question: 'Error loading riddle.', solution: '' };

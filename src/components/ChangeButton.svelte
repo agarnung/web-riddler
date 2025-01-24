@@ -3,7 +3,9 @@
   export let isDisabled = false;
 </script>
 
-<button on:click={changeRiddle} disabled={isDisabled} class="riddle-button"> Next Riddle </button>
+<button on:click={changeRiddle} disabled={isDisabled} class="riddle-button">
+  Next Riddle
+</button>
 
 <style>
   .riddle-button {
@@ -19,6 +21,11 @@
 
   .riddle-button:hover {
     background-color: #5b21b6;
+  }
+
+  .riddle-button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
   }
 </style>
 

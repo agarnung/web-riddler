@@ -2,19 +2,15 @@
 import { defineConfig } from 'astro/config';
 import svelte from '@astrojs/svelte';
 import vercel from '@astrojs/vercel';
+import dotenv from 'dotenv';
 
-// https://astro.build/config
+dotenv.config();
+
 export default defineConfig({
   integrations: [svelte()],
-  
   output: 'server',
-  adapter: vercel(),
-
-  server: {
-    // Server configuration
-    headers: {
-      // Cache control to prevent caching
-      'Cache-Control': 'no-cache, no-store, must-revalidate',
-    },
-  },
+  adapter: vercel({
+    imageService: true, 
+  }),
 });
+
