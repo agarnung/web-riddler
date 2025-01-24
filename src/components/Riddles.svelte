@@ -1,13 +1,17 @@
 <script lang="ts">
+  /// <reference types="svelte" />
   import Input from './Input.svelte';
   import RiddleDisplay from './RiddleDisplay.svelte';
   import ChangeButton from './ChangeButton.svelte';
-  import { getRandomRiddle } from '../utils/riddles';
+  import ProgressBar from './ProgressBar.svelte';
+  import { getRandomRiddle } from '../utils/riddles.ts';
+  import { cosineSimilarity } from '../libs/distanceCalculator.ts';
 
   let userInput = '';
   let response = '';
   let error = '';
   let riddle = { question: '', solution: '' };
+  let similarity = 0;
 
   const changeRiddle = () => {
     try {
@@ -16,36 +20,40 @@
       userInput = '';
       response = '';  
       error = '';    
+      similarity = 0;
     } catch (err) {
       console.error('Error loading riddle:', err);
       riddle = { question: 'Error loading riddle.', solution: '' };
     }
   };
 
-  const evaluateAnswer = async () => {
+  const evaluateAnswer = async (event: CustomEvent) => {
+    userInput = event.detail;
     try {
+      console.log('Sending data to API:', { userInput, solution: riddle.solution });
       const res = await fetch('/api/evaluate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userInput }),
+        body: JSON.stringify({ userInput, solution: riddle.solution }),
       });
 
       const data = await res.json();
+      console.log('Received data from API:', data);
       if (data.error) {
         error = data.error;
         response = '';
       } else {
         response = data.generated_text || 'Unclear response';
         error = '';
+        similarity = cosineSimilarity(data.user_vector, data.solution_vector) * 100;
+        console.log('Calculated similarity:', similarity);
       }
     } catch (err) {
+      console.error('Error processing the request:', err);
       error = 'Error processing the request.';
       response = '';
     }
   };
-  
-  
-console.log("heeelo")
 
   // Load the riddle directly during initialization
   changeRiddle();
@@ -58,7 +66,7 @@ console.log("heeelo")
   <RiddleDisplay {riddle} />
 
   <!-- Input Component -->
-  <Input bind:value={userInput} />
+  <Input bind:value={userInput} on:send={evaluateAnswer} />
 
   <!-- ChangeButton Component -->
   <ChangeButton
@@ -74,6 +82,9 @@ console.log("heeelo")
   {#if error}
     <p class="error-text">Error: {error}</p>
   {/if}
+
+  <!-- ProgressBar Component -->
+  <ProgressBar {similarity} />
 </div>
 
 <style>
