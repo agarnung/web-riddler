@@ -920,6 +920,6 @@ export const riddles = [
 
 export const getRandomRiddle = () => {
   const randomRiddle = riddles[Math.floor(Math.random() * riddles.length)];
-  console.log("Riddle aleatoria seleccionada:", randomRiddle);  
+  console.log("Random riddle selected:", randomRiddle);  
   return randomRiddle;
 };
