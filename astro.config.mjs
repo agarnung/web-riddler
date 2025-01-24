@@ -1,12 +1,15 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import svelte from '@astrojs/svelte';
+import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [svelte()],
-  output: 'static',
-  site: 'https://web-riddler.vercel.app/',
+  
+  output: 'server',
+  adapter: vercel(),
+
   server: {
     // Server configuration
     headers: {
@@ -14,6 +17,4 @@ export default defineConfig({
       'Cache-Control': 'no-cache, no-store, must-revalidate',
     },
   },
-
 });
-

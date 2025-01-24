@@ -89,7 +89,7 @@ src/
 * Use **HuggingFace** by visiting their [Hub](https://huggingface.co/models) and selecting an appropriate LLM model, e.g., for analyzing text and providing feedback: [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) 
 * Create an access token on Hugging Face via Profile => Access Token => Create new token, with simple read permissions.
 * Add an API endpoint to interact with the model. In Astro, you can create an API route to handle requests. To keep the key protected, Vercel integrates environment variables of the project in Settings => Environment Variables. Also, one can connect Vercel with Git repository to create a Production Deployment.
-* Make sure to have these dependencies installed: ```npm install -D typescript svelte-preprocess @sveltejs/vite-plugin-svelte @astrojs/svelte svelte```
+* Make sure to have these dependencies installed: ```npm install -D typescript svelte-preprocess @sveltejs/vite-plugin-svelte @astrojs/svelte svelte``` and ```npx astro add vercel```
 * Ensure that you include everything you need in ```tsconfig.json``` and ```astro.config.mjs```, for example, for Svelte and TypeScript integration.
 
 You can now start customizing the project template to add the desired functionality and Svelte components, referring to the documentation of these tools.
