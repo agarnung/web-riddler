@@ -41,13 +41,7 @@
         throw new Error(`HTTP error! status: ${res.status}`);
       }
 
-      let data;
-      try {
-        data = await res.json();
-      } catch (jsonError) {
-        throw new Error('Error parsing JSON response');
-      }
-
+      const data = await res.json();
       console.log('Received data from API:', data);
       if (data.error) {
         error = data.error;

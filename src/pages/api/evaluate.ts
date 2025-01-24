@@ -1,27 +1,21 @@
 import type { APIRoute } from 'astro';
+import { getEmbeddings } from '../../utils/embeddingService';
 
 export const post: APIRoute = async ({ request }) => {
-  const { userInput, solution } = await request.json();
-  console.log('Received data:', { userInput, solution });
-
   try {
-    const response = await fetch('https://api-inference.huggingface.co/models/sentence-transformers/all-MiniLM-L6-v2', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${process.env.HUGGING_FACE_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        inputs: [userInput, solution],
-      }),
-    });
+    const { userInput, solution } = await request.json();
+    console.log('Received data:', { userInput, solution });
 
-    const text = await response.text();
-    console.log('Response from Hugging Face API:', text);
-    const data = JSON.parse(text);
-    return new Response(JSON.stringify(data), { status: 200 });
+    if (!userInput || !solution) {
+      return new Response(JSON.stringify({ error: 'User input and solution are required' }), { status: 400 });
+    }
+
+    const userVector = await getEmbeddings(userInput);
+    const solutionVector = await getEmbeddings(solution);
+
+    return new Response(JSON.stringify({ user_vector: userVector, solution_vector: solutionVector }), { status: 200 });
   } catch (error) {
     console.error('Error processing the request:', error);
-    return new Response(JSON.stringify({ error: 'Error processing the request.' }), { status: 500 });
+    return new Response(JSON.stringify({ error: (error as Error).message }), { status: 500 });
   }
 };
