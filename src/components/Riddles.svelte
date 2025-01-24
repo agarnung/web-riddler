@@ -52,11 +52,11 @@
   <RiddleDisplay {riddle} />
 
   <!-- Input Component -->
-  <Input bind:userInput={userInput} />
+  <Input bind:value={userInput} />
 
   <!-- ChangeButton Component -->
   <ChangeButton
-    handleSend={loadRiddle}
+    changeRiddle={loadRiddle}
     isDisabled={false}
   />
 
