@@ -5,7 +5,7 @@
   import ChangeButton from './ChangeButton.svelte';
   import ProgressBar from './ProgressBar.svelte';
   import { getRandomRiddle } from '../utils/riddles.ts';
-  import { cosineSimilarity } from '../libs/distanceCalculator.ts';
+  import { cosineSimilarity } from '../utils/distanceCalculator.ts';
 
   let userInput = '';
   let response = '';
@@ -37,7 +37,17 @@
         body: JSON.stringify({ userInput, solution: riddle.solution }),
       });
 
-      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+
+      let data;
+      try {
+        data = await res.json();
+      } catch (jsonError) {
+        throw new Error('Error parsing JSON response');
+      }
+
       console.log('Received data from API:', data);
       if (data.error) {
         error = data.error;
