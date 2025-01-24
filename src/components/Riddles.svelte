@@ -1,16 +1,23 @@
-<!-- src/components/Riddles.svelte -->
 <script lang="ts">
   import Input from './Input.svelte';
   import RiddleDisplay from './RiddleDisplay.svelte';
   import Button from './Button.svelte';
-  import { onMount } from 'svelte';
   import { getRandomRiddle } from '../scripts/riddles.ts';
 
   let userInput = '';
   let response = '';
   let error = '';
-  let riddle = { question: 'Oro parece, oro no es; qué es?', solution: 'Órono' }; 
-  let exactAnswer = 'Órono';
+  let riddle = { question: '', solution: '' };
+
+  const loadRiddle = () => {
+    try {
+      riddle = getRandomRiddle();
+      console.log('Riddle loaded:', riddle);
+    } catch (err) {
+      console.error('Error loading riddle:', err);
+      riddle = { question: 'Error loading riddle.', solution: '' };
+    }
+  };
 
   const evaluateAnswer = async () => {
     try {
@@ -34,15 +41,12 @@
     }
   };
 
-  // Asign a random ridle each time this component is mounted
-  onMount(() => {
-  riddle = getRandomRiddle(); 
-  console.log("Riddle obtained:", riddle);
-  });
+  // Load the riddle directly during initialization
+  loadRiddle();
 </script>
 
 <div class="container">
-  <h1>Riddles</h1>
+  <h2>I'm giving you a riddle, try to guess it...</h2>
 
   <!-- Riddle Display Component -->
   <RiddleDisplay {riddle} />
@@ -78,8 +82,8 @@
     text-align: center;
   }
 
-  h1 {
-    font-size: 2em;
+  h2 {
+    font-size: 1.35em;
     margin-bottom: 20px;
     color: #333;
   }

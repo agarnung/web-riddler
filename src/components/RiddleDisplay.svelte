@@ -12,8 +12,9 @@
   }
 
   h2 {
-    font-size: 1.5em;
-    color: #333;
+    font-size: 1.25em;
+    font-style: italic;
+    color: #33B;
   }
 </style>
 

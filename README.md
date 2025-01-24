@@ -108,4 +108,5 @@ You can redeploy to production with: ```vercel deploy --prod```. The app will up
 # References:
 - [The Net Ninja - Astro Tutorial](https://www.youtube.com/watch?v=gUs-Sissb48&ab_channel=NetNinja)
 - [Notpron](https://es.wikipedia.org/wiki/Notpron)
+- [Some riddles](https://huggingface.co/datasets/flyingfishinwater/riddle/blob/main/riddle.jsonl)
 
