@@ -9,7 +9,7 @@
   let error = '';
   let riddle = { question: '', solution: '' };
 
-  const loadRiddle = () => {
+  const changeRiddle = () => {
     try {
       riddle = getRandomRiddle();
       console.log('New riddle loaded:', riddle);
@@ -45,7 +45,7 @@
   };
 
   // Load the riddle directly during initialization
-  loadRiddle();
+  changeRiddle();
 </script>
 
 <div class="container">
@@ -59,7 +59,7 @@
 
   <!-- ChangeButton Component -->
   <ChangeButton
-    changeRiddle={loadRiddle}
+    changeRiddle={changeRiddle}
     isDisabled={false}
   />
 
