@@ -5,7 +5,7 @@
 </script>
 
 <div class="progress-bar-container">
-  <div class="progress-bar" style="width: {similarity}%; background-color: {progressColor};"></div>
+  <div class="progress-bar" style="width: {similarity.toFixed(0)}%; background-color: {progressColor};"></div>
 </div>
 
 <style>

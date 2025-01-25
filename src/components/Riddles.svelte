@@ -71,8 +71,8 @@
 
   {#if error}
     <p class="error-text">Error: {error}</p>
-  {:else}
-    <p class="response-text">Similarity: {similarity}%</p>
+  {:else if similarity > 0}
+    <p class="response-text">Similarity: {similarity.toFixed(0)}%</p>
   {/if}
 
   <ProgressBar {similarity} />
