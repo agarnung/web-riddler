@@ -20,4 +20,10 @@ export default defineConfig({
       'Cache-Control': 'no-cache, no-store, must-revalidate',
     },
   },
+
+  vite: {
+    define: {
+      'process.env': process.env, // Esto asegura que las variables de entorno estén disponibles
+    },
+  }, 
 });
