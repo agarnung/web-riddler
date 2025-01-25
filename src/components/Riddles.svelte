@@ -17,6 +17,9 @@
   let error = "";
   let riddle = { question: "", solution: "" };
   let similarity = 0;
+  let analyzing = false;
+  let analyzingText = "Analyzing";
+  let intervalId;
 
   const changeRiddle = () => {
     try {
@@ -30,8 +33,12 @@
     }
   };
 
-  const evaluateAnswer = async (event: CustomEvent) => {
+    const evaluateAnswer = async (event: CustomEvent) => {
     userInput = event.detail;
+    analyzing = true;
+    analyzingText = "Analyzing"; 
+    startAnalyzingText();  
+
     try {
       if (!API_BASE_URL) {
         throw new Error("API_BASE_URL is not defined!");
@@ -54,7 +61,22 @@
     } catch (err) {
       console.error("Error processing the request:", err);
       error = "Error processing the request.";
+    } finally {
+      analyzing = false;
+      stopAnalyzingText(); 
     }
+  };
+
+  const startAnalyzingText = () => {
+  let dotCount = 1;
+  intervalId = setInterval(() => {
+    analyzingText = "Analyzing" + ".".repeat(dotCount);
+    dotCount = dotCount === 3 ? 0 : dotCount + 1;
+  }, 350); 
+};
+
+  const stopAnalyzingText = () => {
+    clearInterval(intervalId);  
   };
 
   changeRiddle();
@@ -68,6 +90,10 @@
   <Input bind:value={userInput} on:send={evaluateAnswer} />
 
   <ChangeButton {changeRiddle} isDisabled={false} />
+
+  {#if analyzing}
+    <div class="analyzing_popup">{analyzingText}</div> 
+  {/if}
 
   {#if error}
     <p class="error-text">Error: {error}</p>
@@ -109,5 +135,18 @@
 
   .error-text {
     color: #e74c3c;
+  }
+
+  .analyzing_popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    z-index: 1000;
   }
 </style>
