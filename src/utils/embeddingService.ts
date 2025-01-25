@@ -1,9 +1,16 @@
-// src/lib/embeddingService.ts
+import dotenv from 'dotenv';
+import fetch from 'node-fetch';
+
+dotenv.config();
+
+const hfApiUrl = 'https://api-inference.huggingface.co/pipeline/feature-extraction/sentence-transformers/all-MiniLM-L6-v2';
+const hfAccessToken = process.env.HUGGING_FACE_API_KEY;
+
 export async function getEmbeddings(text: string): Promise<number[]> {
-  const response = await fetch('https://api-inference.huggingface.co/pipeline/feature-extraction/sentence-transformers/all-MiniLM-L6-v2', {
+  const response = await fetch(hfApiUrl, {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${process.env.HUGGING_FACE_API_KEY}`,
+      Authorization: `Bearer ${hfAccessToken}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ inputs: text }),
@@ -14,5 +21,15 @@ export async function getEmbeddings(text: string): Promise<number[]> {
   }
 
   const result = await response.json();
-  return result[0]; // Assumes result is an array with the embedding as the first element
+
+  if (Array.isArray(result) && result.length > 0) {
+    if (Array.isArray(result[0]) && result[0].every((item) => typeof item === 'number')) {
+      return result[0];
+    }
+    if (result.every((item) => typeof item === 'number')) {
+      return result;
+    }
+  }
+
+  throw new Error("Unexpected response format. Full response: " + JSON.stringify(result));
 }

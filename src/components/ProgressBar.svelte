@@ -1,7 +1,7 @@
 <script lang="ts">
   export let similarity = 0;
 
-  $: progressColor = similarity > 50 ? 'green' : similarity > 25 ? 'yellow' : 'red';
+  $: progressColor = `hsl(${(similarity / 100) * 120}, 100%, 50%)`;
 </script>
 
 <div class="progress-bar-container">
@@ -19,6 +19,6 @@
 
   .progress-bar {
     height: 20px;
-    transition: width 0.3s ease;
+    transition: width 0.3s ease, background-color 0.3s ease;
   }
 </style>

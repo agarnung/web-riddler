@@ -4,8 +4,9 @@
   import RiddleDisplay from './RiddleDisplay.svelte';
   import ChangeButton from './ChangeButton.svelte';
   import ProgressBar from './ProgressBar.svelte';
-  import { getRandomRiddle } from '../utils/riddles.ts';
-  import { cosineSimilarity } from '../utils/distanceCalculator.ts';
+  import { getRandomRiddle } from '../utils/riddles';
+  import { cosineSimilarity } from '../utils/distanceCalculator';
+  import { getEmbeddings } from '../utils/embeddingService';
 
   let userInput = '';
   let response = '';
@@ -31,27 +32,14 @@
     userInput = event.detail;
     try {
       console.log('Sending data to API:', { userInput, solution: riddle.solution });
-      const res = await fetch('/api/evaluate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userInput, solution: riddle.solution }),
-      });
+      const userEmbedding = await getEmbeddings(userInput);
+      const solutionEmbedding = await getEmbeddings(riddle.solution);
 
-      if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
-      }
+      similarity = cosineSimilarity(userEmbedding, solutionEmbedding);
+      console.log('Calculated similarity:', similarity);
 
-      const data = await res.json();
-      console.log('Received data from API:', data);
-      if (data.error) {
-        error = data.error;
-        response = '';
-      } else {
-        response = data.generated_text || 'Unclear response';
-        error = '';
-        similarity = cosineSimilarity(data.user_vector, data.solution_vector) * 100;
-        console.log('Calculated similarity:', similarity);
-      }
+      response = `Similarity: ${similarity.toFixed(2)}%`;
+      error = '';
     } catch (err) {
       console.error('Error processing the request:', err);
       error = 'Error processing the request.';
