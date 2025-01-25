@@ -3,7 +3,7 @@ export async function getEmbeddings(text: string): Promise<number[]> {
     const response = await fetch('https://api-inference.huggingface.co/pipeline/feature-extraction/sentence-transformers/all-MiniLM-L6-v2', {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${process.env.HF_ACCESS_TOKEN}`,
+        Authorization: `Bearer ${process.env.HUGGING_FACE_TOKEN}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ inputs: text }),

@@ -1,92 +1,76 @@
+<!-- Riddgles.svelte -->
 <script lang="ts">
-  /// <reference types="svelte" />
-  import Input from './Input.svelte';
-  import RiddleDisplay from './RiddleDisplay.svelte';
-  import ChangeButton from './ChangeButton.svelte';
-  import ProgressBar from './ProgressBar.svelte';
-  import { getRandomRiddle } from '../utils/riddles.ts';
+  import Input from "./Input.svelte";
+  import RiddleDisplay from "./RiddleDisplay.svelte";
+  import ChangeButton from "./ChangeButton.svelte";
+  import ProgressBar from "./ProgressBar.svelte";
+  import { getRandomRiddle } from "../utils/riddles.ts";
 
-  let userInput = '';
-  let response = '';
-  let error = '';
-  let riddle = { question: '', solution: '' };
+  const API_BASE_URL = 'http://localhost:4321/api';
+  console.log("API_BASE_URL:", API_BASE_URL);
+
+  let userInput = "";
+  let error = "";
+  let riddle = { question: "", solution: "" };
   let similarity = 0;
 
   const changeRiddle = () => {
     try {
       riddle = getRandomRiddle();
-      console.log('New riddle loaded:', riddle);
-      userInput = '';
-      response = '';  
-      error = '';    
+      userInput = "";
+      error = "";
       similarity = 0;
     } catch (err) {
-      console.error('Error loading riddle:', err);
-      riddle = { question: 'Error loading riddle.', solution: '' };
+      console.error("Error loading riddle:", err);
+      riddle = { question: "Error loading riddle.", solution: "" };
     }
   };
 
   const evaluateAnswer = async (event: CustomEvent) => {
     userInput = event.detail;
     try {
-      console.log('Sending data to API:', { userInput, solution: riddle.solution });
-      const res = await fetch('/api/evaluate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      if (!API_BASE_URL) {
+        throw new Error("API_BASE_URL is not defined!");
+      }
+      const res = await fetch(`${API_BASE_URL}/evaluate`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userInput, solution: riddle.solution }),
       });
 
-      if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
-      }
+      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
 
       const data = await res.json();
-      console.log('Received data from API:', data);
       if (data.error) {
         error = data.error;
-        response = '';
       } else {
-        response = data.generated_text || 'Unclear response';
-        error = '';
-        similarity = data.similarity;
-        console.log('Calculated similarity:', similarity);
+        similarity = data.similarity || 0;
+        error = "";
       }
     } catch (err) {
-      console.error('Error processing the request:', err);
-      error = 'Error processing the request.';
-      response = '';
+      console.error("Error processing the request:", err);
+      error = "Error processing the request.";
     }
   };
 
-  // Load the riddle directly during initialization
   changeRiddle();
 </script>
 
 <div class="container">
   <h2>I'm giving you a riddle, try to guess it...</h2>
 
-  <!-- Riddle Display Component -->
   <RiddleDisplay {riddle} />
 
-  <!-- Input Component -->
   <Input bind:value={userInput} on:send={evaluateAnswer} />
 
-  <!-- ChangeButton Component -->
-  <ChangeButton
-    changeRiddle={changeRiddle}
-    isDisabled={false}
-  />
-
-  <!-- Display Response or Error -->
-  {#if response}
-    <p class="response-text">Model response: {response}</p>
-  {/if}
+  <ChangeButton {changeRiddle} isDisabled={false} />
 
   {#if error}
     <p class="error-text">Error: {error}</p>
+  {:else}
+    <p class="response-text">Similarity: {similarity}%</p>
   {/if}
 
-  <!-- ProgressBar Component -->
   <ProgressBar {similarity} />
 </div>
 
@@ -108,7 +92,8 @@
     color: #333;
   }
 
-  .response-text, .error-text {
+  .response-text,
+  .error-text {
     margin-top: 20px;
     font-size: 1.1em;
     font-weight: bold;
@@ -122,4 +107,3 @@
     color: #e74c3c;
   }
 </style>
-

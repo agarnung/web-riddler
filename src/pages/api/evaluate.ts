@@ -1,14 +1,14 @@
+/// src/pages/api/evaluate.ts
 import type { APIRoute } from 'astro';
-import { getEmbeddings } from '../../utils/embeddingService';
+import { getEmbeddings } from '../../lib/embeddingService';
 import { cosineSimilarity } from '../../utils/distanceCalculator';
 
 export const POST: APIRoute = async ({ request }) => {
   try {
     const { userInput, solution } = await request.json();
-    console.log('Received data:', { userInput, solution });
 
     if (!userInput || !solution) {
-      return new Response(JSON.stringify({ error: 'User input and solution are required' }), { status: 400 });
+      return new Response(JSON.stringify({ error: 'Both userInput and solution are required.' }), { status: 400 });
     }
 
     const userVector = await getEmbeddings(userInput);
@@ -18,7 +18,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     return new Response(JSON.stringify({ similarity }), { status: 200 });
   } catch (error) {
-    console.error('Error processing the request:', error);
-    return new Response(JSON.stringify({ error: (error as Error).message }), { status: 500 });
+    console.error('Error in evaluate API:', error);
+    return new Response(JSON.stringify({ error: 'Error processing the request' }), { status: 500 });
   }
 };
