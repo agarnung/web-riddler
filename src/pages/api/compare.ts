@@ -1,10 +1,5 @@
 import type { APIRoute } from 'astro';
-import dotenv from 'dotenv';
 import { getEmbeddings } from '../../lib/embeddingService';
-
-dotenv.config();
-
-const HF_ACCESS_TOKEN = process.env.HF_ACCESS_TOKEN;
 
 function singleSoftmax(value: number): number {
   const scaledValue = (value - 0.5) * 10;
@@ -22,7 +17,7 @@ function cosineSimilarity(vectorA: number[], vectorB: number[]): number {
   return singleSoftmax(similarity) * 100;
 }
 
-export const post: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request }) => {
   const { word1, word2 } = await request.json();
 
   if (word1.toLowerCase() === word2.toLowerCase()) {
