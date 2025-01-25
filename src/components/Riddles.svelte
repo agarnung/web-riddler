@@ -9,8 +9,8 @@
   // @ts-ignore
   // TODO por por qué no lee bien las variables de entorno
   // const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-  const API_BASE_URL = 'http://localhost:4321/api';
-  // const API_BASE_URL = 'https://web-riddler.vercel.app/api';
+  // const API_BASE_URL = 'http://localhost:4321/api';
+  const API_BASE_URL = 'https://web-riddler.vercel.app/api';
   console.log("API_BASE_URL:", API_BASE_URL);
 
   let userInput = "";
