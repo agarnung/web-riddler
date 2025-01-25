@@ -1,11 +1,10 @@
 import type { APIRoute } from 'astro';
 import dotenv from 'dotenv';
-import fetch from 'node-fetch';
+import { getEmbeddings } from '../../lib/embeddingService';
 
 dotenv.config();
 
-const hfApiUrl = 'https://api-inference.huggingface.co/pipeline/feature-extraction/sentence-transformers/all-MiniLM-L6-v2';
-const hfAccessToken = process.env.HUGGING_FACE_API_KEY;
+const HF_ACCESS_TOKEN = process.env.HF_ACCESS_TOKEN;
 
 function singleSoftmax(value: number): number {
   const scaledValue = (value - 0.5) * 10;
@@ -23,35 +22,6 @@ function cosineSimilarity(vectorA: number[], vectorB: number[]): number {
   return singleSoftmax(similarity) * 100;
 }
 
-async function extractFeatures(text: string): Promise<number[]> {
-  const response = await fetch(hfApiUrl, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${hfAccessToken}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ inputs: text }),
-  });
-
-  if (!response.ok) {
-    const errorText = await response.text();
-    throw new Error(`API Error: ${response.status} ${response.statusText} - ${errorText}`);
-  }
-
-  const result = await response.json();
-
-  if (Array.isArray(result) && result.length > 0) {
-    if (Array.isArray(result[0]) && result[0].every((item) => typeof item === 'number')) {
-      return result[0];
-    }
-    if (result.every((item) => typeof item === 'number')) {
-      return result;
-    }
-  }
-
-  throw new Error("Unexpected response format. Full response: " + JSON.stringify(result));
-}
-
 export const post: APIRoute = async ({ request }) => {
   const { word1, word2 } = await request.json();
 
@@ -60,8 +30,8 @@ export const post: APIRoute = async ({ request }) => {
   }
 
   try {
-    const vectorA = await extractFeatures(word1);
-    const vectorB = await extractFeatures(word2);
+    const vectorA = await getEmbeddings(word1);
+    const vectorB = await getEmbeddings(word2);
 
     const cosineSim = cosineSimilarity(vectorA, vectorB);
 
