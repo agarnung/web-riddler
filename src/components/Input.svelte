@@ -37,9 +37,6 @@
   }
 
   function handleKeyPress(event: KeyboardEvent) {
-    if (event.key === " ") {
-      event.preventDefault();  
-    }
     if (event.key === 'Enter') {
       handleSend();
     }
