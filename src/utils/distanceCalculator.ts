@@ -1,4 +1,5 @@
-function singleSoftmax(value: number): number {
+// utils/cosineSimilarity.ts
+export function singleSoftmax(value: number): number {
   const scaledValue = (value - 0.5) * 10;
   const expValue = Math.exp(scaledValue);
   const expBaseline = Math.exp(0);

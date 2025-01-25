@@ -4,7 +4,7 @@
   import RiddleDisplay from './RiddleDisplay.svelte';
   import ChangeButton from './ChangeButton.svelte';
   import ProgressBar from './ProgressBar.svelte';
-  import { getRandomRiddle } from '../utils/riddles';
+  import { getRandomRiddle } from '../utils/riddles.ts';
 
   let userInput = '';
   let response = '';
@@ -30,10 +30,10 @@
     userInput = event.detail;
     try {
       console.log('Sending data to API:', { userInput, solution: riddle.solution });
-      const res = await fetch('/api/compare', {
+      const res = await fetch('/api/evaluate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ word1: userInput, word2: riddle.solution }),
+        body: JSON.stringify({ userInput, solution: riddle.solution }),
       });
 
       if (!res.ok) {
@@ -41,15 +41,16 @@
       }
 
       const data = await res.json();
-
+      console.log('Received data from API:', data);
       if (data.error) {
-        throw new Error(data.error);
+        error = data.error;
+        response = '';
+      } else {
+        response = data.generated_text || 'Unclear response';
+        error = '';
+        similarity = data.similarity;
+        console.log('Calculated similarity:', similarity);
       }
-
-      similarity = data.cosineSimilarity;
-      console.log('Calculated similarity:', similarity);
-      response = `Similarity: ${similarity.toFixed(2)}%`;
-      error = '';
     } catch (err) {
       console.error('Error processing the request:', err);
       error = 'Error processing the request.';

@@ -14,5 +14,5 @@ export async function getEmbeddings(text: string): Promise<number[]> {
   }
 
   const result = await response.json();
-  return result[0]; 
+  return result[0]; // Assumes result is an array with the embedding as the first element
 }
