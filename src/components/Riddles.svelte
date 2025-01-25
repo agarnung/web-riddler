@@ -5,8 +5,6 @@
   import ChangeButton from './ChangeButton.svelte';
   import ProgressBar from './ProgressBar.svelte';
   import { getRandomRiddle } from '../utils/riddles';
-  import { cosineSimilarity } from '../utils/distanceCalculator';
-  import { getEmbeddings } from '../utils/embeddingService';
 
   let userInput = '';
   let response = '';
@@ -32,12 +30,20 @@
     userInput = event.detail;
     try {
       console.log('Sending data to API:', { userInput, solution: riddle.solution });
-      const userEmbedding = await getEmbeddings(userInput);
-      const solutionEmbedding = await getEmbeddings(riddle.solution);
+      const res = await fetch('/api/compare', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ word1: userInput, word2: riddle.solution }),
+      });
 
-      similarity = cosineSimilarity(userEmbedding, solutionEmbedding);
+      const data = await res.json();
+
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
+      similarity = data.cosineSimilarity;
       console.log('Calculated similarity:', similarity);
-
       response = `Similarity: ${similarity.toFixed(2)}%`;
       error = '';
     } catch (err) {
