@@ -4,7 +4,7 @@
   <img src="./assets/riddler.png" alt="riddler" title="riddler" />
 </p>
 
-A web game where an LLM riddles you. Play it [here](web-riddler.vercel.app/).
+A web game where an LLM riddles you. Play it [here](https://web-riddler.vercel.app/).
 
 __In progress...__
 
