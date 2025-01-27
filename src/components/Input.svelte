@@ -24,7 +24,7 @@
   /* Allow only letters and apostrophe */
   function handleInput(event: Event) {
     const input = (event.target as HTMLInputElement)?.value || '';
-    const filteredInput = input.replace(/[^a-zA-Z']/g, ''); 
+    const filteredInput = input.replace(/[^a-zA-Z'\s]/g, ''); 
     value = filteredInput;
     dispatch('input', value);
   }
