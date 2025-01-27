@@ -32,7 +32,6 @@
   function handleSend() {
     if (value.trim()) {
       dispatch('send', value.trim());
-      value = ''; // Clear input after sending
     }
   }
 

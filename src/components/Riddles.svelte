@@ -10,8 +10,8 @@
   // @ts-ignore
   // TODO por por qué no lee bien las variables de entorno
   // const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-  const API_BASE_URL = 'http://localhost:4322/api';
-  // const API_BASE_URL = 'https://web-riddler.vercel.app/api';
+  // const API_BASE_URL = 'http://localhost:4322/api';
+  const API_BASE_URL = 'https://web-riddler.vercel.app/api';
   console.log("API_BASE_URL:", API_BASE_URL);
 
   let userInput = "";
@@ -22,11 +22,15 @@
   let analyzingText = "Analyzing";
   let intervalId;
   let showCelebrationPopup = false;
+  let inputCleared = false;
 
   const changeRiddle = () => {
     try {
       riddle = getRandomRiddle();
-      userInput = "";
+      if (!showCelebrationPopup) { 
+        userInput = ""; 
+        inputCleared = false;
+      }
       error = "";
       similarity = 0;
     } catch (err) {
@@ -59,13 +63,21 @@
       } else {
         similarity = data.similarity || 0;
         error = "";
+        
         if (similarity >= 95) {
           showCelebrationPopup = true;
           setTimeout(() => {
             showCelebrationPopup = false;
+            if (!inputCleared) {
+              userInput = ""; 
+              inputCleared = true;
+            }
           }, 3000); 
         }
-
+        else
+        {
+          userInput = ""; 
+        }
       }
     } catch (err) {
       console.error("Error processing the request:", err);
