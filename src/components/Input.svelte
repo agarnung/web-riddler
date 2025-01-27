@@ -3,7 +3,7 @@
 
   export let type = 'text';
   export let value = '';
-  export let placeholder = 'Type your message...';
+  export let placeholder = 'Type your answer...';
   export let required = false;
   export let disabled = false;
   export let name = '';
