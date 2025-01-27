@@ -22,8 +22,8 @@ __In progress...__
 # Steps:
 
 1. Clone the project and navigate to the root directory:  
-   ```bash
-   cd /opt/guessword
+```bash
+cd /opt/guessword
 ```
 2. Install dependencies defined in the ```package.json``` file from the project root:
 ```bash
