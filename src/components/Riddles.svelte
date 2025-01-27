@@ -4,13 +4,14 @@
   import RiddleDisplay from "./RiddleDisplay.svelte";
   import ChangeButton from "./ChangeButton.svelte";
   import ProgressBar from "./ProgressBar.svelte";
+  import CelebrationPopup from "./CelebrationPopup.svelte";
   import { getRandomRiddle } from "../utils/riddles";
 
   // @ts-ignore
   // TODO por por qué no lee bien las variables de entorno
   // const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-  // const API_BASE_URL = 'http://localhost:4321/api';
-  const API_BASE_URL = 'https://web-riddler.vercel.app/api';
+  const API_BASE_URL = 'http://localhost:4322/api';
+  // const API_BASE_URL = 'https://web-riddler.vercel.app/api';
   console.log("API_BASE_URL:", API_BASE_URL);
 
   let userInput = "";
@@ -20,6 +21,7 @@
   let analyzing = false;
   let analyzingText = "Analyzing";
   let intervalId;
+  let showCelebrationPopup = false;
 
   const changeRiddle = () => {
     try {
@@ -57,6 +59,13 @@
       } else {
         similarity = data.similarity || 0;
         error = "";
+        if (similarity >= 95) {
+          showCelebrationPopup = true;
+          setTimeout(() => {
+            showCelebrationPopup = false;
+          }, 3000); 
+        }
+
       }
     } catch (err) {
       console.error("Error processing the request:", err);
@@ -95,6 +104,8 @@
     <div class="analyzing_popup">{analyzingText}</div> 
   {/if}
 
+  <CelebrationPopup visible={showCelebrationPopup} message="🎉 Correct! 🎉" />
+
   {#if error}
     <p class="error-text">Error: {error}</p>
   {:else if similarity > 0}
@@ -102,6 +113,7 @@
   {/if}
 
   <ProgressBar {similarity} />
+
 </div>
 
 <style>

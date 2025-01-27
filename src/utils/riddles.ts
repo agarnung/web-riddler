@@ -26,7 +26,7 @@ export const riddles = [
   },
   {
         "question": "Who commits friendly home invasions one night a year",
-        "solution": "It's Santa claus."
+        "solution": "Santa Claus."
     },
     {
         "question": "I'm as big as an elephant, but lighter than a feather. What am I?",

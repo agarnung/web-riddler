@@ -112,6 +112,6 @@ You can redeploy to production with: ```vercel deploy --prod```. The app will up
 - [Some riddles](https://huggingface.co/datasets/flyingfishinwater/riddle/blob/main/riddle.jsonl)
 
 # TODO
-* Win popup if exact match or goes above a threshold (e.g. 98 %)
+* Ad a "show solution" button
 * Use a script to automatically fix typos in the riddles database (e.g. dont allow numbers, neither dots, only short texts, etc.)
 
