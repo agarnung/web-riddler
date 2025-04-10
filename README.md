@@ -113,5 +113,6 @@ You can redeploy to production with: ```vercel deploy --prod```. The app will up
 
 # TODO
 * Ad a "show solution" button
+* Change GUI buttons colors to not fool accidentally changing riddle
 * Use a script to automatically fix typos in the riddles database (e.g. dont allow numbers, neither dots, only short texts, etc.)
 
