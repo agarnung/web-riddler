@@ -24,6 +24,9 @@ test('exact and article variants score 100', () => {
   assert.equal(closeness('clock', 'a clock'), 100);
   assert.equal(closeness('A Clock!', 'a clock'), 100);
   assert.equal(closeness('the clock', 'a clock'), 100);
+  assert.equal(closeness('sed', 'La sed'), 100);
+  assert.equal(closeness('aire', 'El aire'), 100);
+  assert.equal(closeness('tijeras', 'Las tijeras'), 100);
 });
 
 test('accepted slash alternatives score 100', () => {

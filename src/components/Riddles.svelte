@@ -26,6 +26,7 @@
   let lang: Lang = "en";
   let usedFallback = false;
   let similarity = 0;
+  let hasEvaluated = false;
   let analyzing = false;
   let analyzingText = "Analyzing";
   let intervalId;
@@ -43,6 +44,7 @@
       }
       error = "";
       similarity = 0;
+      hasEvaluated = false;
       showSolution = false;
     } catch (err) {
       console.error("Error loading riddle:", err);
@@ -77,6 +79,7 @@
   const evaluateAnswer = async (event: CustomEvent) => {
     userInput = event.detail;
     analyzing = true;
+    hasEvaluated = true;
     analyzingText = "Analyzing"; 
     startAnalyzingText();  
 
@@ -194,7 +197,7 @@
 
   {#if error}
     <p class="error-text">{t(lang, "error")}: {error}</p>
-  {:else if similarity > 0}
+  {:else if hasEvaluated}
     <p class="response-text">{t(lang, "closeness")}: {similarity.toFixed(0)}%</p>
     {#if usedFallback}
       <p class="fallback-text">{t(lang, "offline")}</p>

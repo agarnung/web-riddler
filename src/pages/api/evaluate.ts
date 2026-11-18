@@ -34,6 +34,12 @@ export const POST: APIRoute = async ({ request }) => {
   // whenever Hugging Face is unavailable (cold start, quota, 5xx, timeout).
   const local = closeness(userInput, solution);
 
+  // Exact answers and article variants are already resolved locally; do not let a
+  // weaker embedding score downgrade them.
+  if (local === 100) {
+    return json({ similarity: 100, fallback: false, reason: 'exact-local' });
+  }
+
   if (!process.env.HUGGING_FACE_TOKEN) {
     console.warn('HUGGING_FACE_TOKEN is not set; using the local matcher.');
     return json({ similarity: local, fallback: true, reason: 'no-token' });
@@ -44,7 +50,10 @@ export const POST: APIRoute = async ({ request }) => {
       getEmbeddings(userInput),
       getEmbeddings(solution),
     ]);
-    const similarity = cosineSimilarity(userVector, solutionVector);
+    const similarity = Math.max(
+      local,
+      Math.round(cosineSimilarity(userVector, solutionVector))
+    );
     return json({ similarity, fallback: false });
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);

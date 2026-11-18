@@ -21,7 +21,7 @@ export const normalizeAnswer = (text: string): string =>
     .trim();
 
 const stripArticle = (text: string): string =>
-  text.replace(/^(a|an|the)\s+/, '').trim();
+  text.replace(/^(a|an|the|el|la|lo|los|las|un|una|unos|unas)\s+/, '').trim();
 
 const variants = (text: string): string[] => {
   const base = normalizeAnswer(text);
