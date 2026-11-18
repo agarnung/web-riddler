@@ -13,9 +13,9 @@
     padding: 10px 20px;
     background-color: #6b7280;
     color: white;
-    font-size: 1.1em;
+    font-size: 1em;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.15s ease;
   }

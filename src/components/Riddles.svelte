@@ -152,11 +152,12 @@
   </button>
 
   <h2>{t(lang, "heading")}</h2>
+
+  <RiddleDisplay {riddle} />
+
   <div class="brand-row">
     <span class="brand">web-riddler</span>
   </div>
-
-  <RiddleDisplay {riddle} />
 
   <Input
     bind:value={userInput}
@@ -253,6 +254,7 @@
   h2 {
     font-size: 1.35em;
     margin-bottom: 20px;
+    padding: 0 4.5rem;
     color: #333;
   }
 
@@ -288,18 +290,25 @@
   .daily-button,
   .solution-button {
     border: 0;
-    border-radius: 8px;
-    padding: 10px 14px;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 1em;
     font-weight: 600;
     cursor: pointer;
-    background-color: #2d2d2d;
+    background-color: #6b7280;
     color: #fff;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s ease, transform 0.15s ease;
   }
 
   .daily-button:hover,
   .solution-button:hover {
-    background-color: #555;
+    background-color: #4b5563;
+  }
+
+  .daily-button:active,
+  .solution-button:active {
+    background-color: #374151;
+    transform: scale(0.97);
   }
 
   .solution-text {
