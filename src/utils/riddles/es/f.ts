@@ -1,4 +1,4 @@
-import type { Riddle } from "../riddleLogic";
+import type { Riddle } from "../../riddleLogic";
 
 // Lote F: cuerpo, objetos y clásicos.
 export const riddlesEsF: Riddle[] = [

@@ -1,4 +1,4 @@
-import type { Riddle } from "../riddleLogic";
+import type { Riddle } from "../../riddleLogic";
 
 // Primer lote: 38 acertijos ya revisados.
 export const riddlesEsA: Riddle[] = [

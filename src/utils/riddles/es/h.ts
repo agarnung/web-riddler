@@ -1,4 +1,4 @@
-import type { Riddle } from "../riddleLogic";
+import type { Riddle } from "../../riddleLogic";
 
 // Lote H: preguntas de cultura y naturaleza.
 export const riddlesEsH: Riddle[] = [

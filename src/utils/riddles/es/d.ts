@@ -1,4 +1,4 @@
-import type { Riddle } from "../riddleLogic";
+import type { Riddle } from "../../riddleLogic";
 
 // Lote D: juegos de palabras y lógica cotidiana.
 export const riddlesEsD: Riddle[] = [

@@ -1,4 +1,4 @@
-import type { Riddle } from "../riddleLogic";
+import type { Riddle } from "../../riddleLogic";
 
 // Lote G: 41 clásicos de la colección pública
 // «Adivinanzas corrientes en Chile» (Eliodoro Flores, 1911, dominio público),

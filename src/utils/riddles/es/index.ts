@@ -1,4 +1,4 @@
-import type { Riddle } from "../riddleLogic";
+import type { Riddle } from "../../riddleLogic";
 import { riddlesEsA } from "./a";
 import { riddlesEsB } from "./b";
 import { riddlesEsC } from "./c";
