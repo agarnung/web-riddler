@@ -916,6 +916,558 @@ export const riddles = [
   {
     "question": "I come at the end of time and at the start of eternity. I come four times in every week, but only once in a thousand years. What am I?",
     "solution": "The letter E"
+  },
+  {
+    "question": "In France I was made, in Chile I was sold; ladies seek me and court me; if they pin me, I am saved; if they let me go, I am lost. What am I?",
+    "solution": "A pin"
+  },
+  {
+    "question": "Far away I was made, and here I am sold; by the ladies I am valued, and always worn. What am I?",
+    "solution": "A pin"
+  },
+  {
+    "question": "Ana they call me by name and Fre by surname. Who am I?",
+    "solution": "An anafre"
+  },
+  {
+    "question": "I put the long into the round until it reaches the bottom. What is it?",
+    "solution": "A ring"
+  },
+  {
+    "question": "A tree with twelve hooks; each hook has its nest, each nest its egg. What is it?",
+    "solution": "The year"
+  },
+  {
+    "question": "A tree with twelve branches, each has a nest, each nest seven birds and each one its surname. What is it?",
+    "solution": "The year"
+  },
+  {
+    "question": "I grew up in the mountains, I left my figure there; now I come for it over the hard lands. What am I?",
+    "solution": "A plow"
+  },
+  {
+    "question": "Step on hard, step on soft, always follows flashing. What is it?",
+    "solution": "A plow"
+  },
+  {
+    "question": "Which cruel son tears his mother apart, and she with great calm eats him?",
+    "solution": "Fire"
+  },
+  {
+    "question": "What is it that walks without owning its feet, with its head dragging and its spine backwards?",
+    "solution": "A plow"
+  },
+  {
+    "question": "How high you live, how high you dwell; how well the weaver weaves. What is it?",
+    "solution": "A spider"
+  },
+  {
+    "question": "It lives high, dwells high, weaves high. What is it?",
+    "solution": "A spider"
+  },
+  {
+    "question": "I am geometric and I am musical; I am a very primitive weapon, and painted in the sky I return joy to the soul. What am I?",
+    "solution": "A rainbow"
+  },
+  {
+    "question": "I put the hard into the soft; and both hang. What are they?",
+    "solution": "Earrings"
+  },
+  {
+    "question": "Running water, jumping fish, arrayan stick, singing thrush. What is it?",
+    "solution": "A river"
+  },
+  {
+    "question": "He who orders it made, orders it made crying; he who makes it, makes it singing; he who sees it does not enjoy it, and he who enjoys it does not see it. What is it?",
+    "solution": "A coffin"
+  },
+  {
+    "question": "He who makes it does not want it; he who sees it does not desire it; he who enjoys it does not see it. What is it?",
+    "solution": "A coffin"
+  },
+  {
+    "question": "As big as a pillar, like flesh and does not eat bread. What is it?",
+    "solution": "A coffin"
+  },
+  {
+    "question": "I am a bird and I do not deny it, and very plain to deal with. What am I?",
+    "solution": "A hazelnut"
+  },
+  {
+    "question": "I am small and light and I resemble a bell. What am I?",
+    "solution": "A hazelnut"
+  },
+  {
+    "question": "I am a bird, but I do not fly; my name is a very plain thing; I am a poor mountain girl, daughter of a son of a soil. What am I?",
+    "solution": "A hazelnut"
+  },
+  {
+    "question": "I put it in buzzing, I take it out dripping. What is it?",
+    "solution": "A bee"
+  },
+  {
+    "question": "I leave my home buzzing and return dripping. What am I?",
+    "solution": "A bee"
+  },
+  {
+    "question": "I go dressed in patches, being a woman of honor; many men for my love lost health and life; I instill fear in many. I never saw soap and yet I am worth it. What am I?",
+    "solution": "A deck of cards"
+  },
+  {
+    "question": "White was my birth; they painted me in colors; I have caused many deaths and impoverished lords. What am I?",
+    "solution": "A playing card"
+  },
+  {
+    "question": "A thing that was not in the world and was not found in heaven, nor did God, being God, have it; a man gave it to God. What is it?",
+    "solution": "Nothing"
+  },
+  {
+    "question": "In heaven it was not, on earth it was not found; God, being God, did not have it, and a man gave it to God. What is it?",
+    "solution": "Nothing"
+  },
+  {
+    "question": "A man went out to look for what was not in the world, and another man gave it to him and he did not have it either. What is it?",
+    "solution": "Nothing"
+  },
+  {
+    "question": "Three young ladies dance inside a plate with a green jacket and a purple dress. What are they?",
+    "solution": "Broad beans"
+  },
+  {
+    "question": "Green field where many plump, very peeled ones shine, one of which has red petticoats. What is it?",
+    "solution": "A watermelon"
+  },
+  {
+    "question": "A little oven full of vines, neither green nor dry. What is it?",
+    "solution": "A pomegranate"
+  },
+  {
+    "question": "Tall as a pine, walks like a colt. What is it?",
+    "solution": "A cloud"
+  },
+  {
+    "question": "It has a head and is not a man, it has teeth and does not eat. What is it?",
+    "solution": "Garlic"
+  },
+  {
+    "question": "It has teeth and does not eat, it has beards and is not a man. What is it?",
+    "solution": "Corn"
+  },
+  {
+    "question": "What thing is it that the more you take away, the bigger it gets?",
+    "solution": "A hole"
+  },
+  {
+    "question": "What thing is it that the more it dries, the more wrinkled it is?",
+    "solution": "A raisin"
+  },
+  {
+    "question": "What thing is it that breaks when you say its name?",
+    "solution": "Silence"
+  },
+  {
+    "question": "What thing is it that is lost and cannot be found?",
+    "solution": "Time"
+  },
+  {
+    "question": "What thing is it that is given and cannot be received?",
+    "solution": "Advice"
+  },
+  {
+    "question": "What thing is it that is shared and grows?",
+    "solution": "Happiness"
+  },
+  {
+    "question": "What thing is it that is kept and takes no space?",
+    "solution": "A secret"
+  },
+  {
+    "question": "What thing is it that is counted and has no numbers?",
+    "solution": "A story"
+  },
+  {
+    "question": "What has bones and is not an animal?",
+    "solution": "An umbrella"
+  },
+  {
+    "question": "What has blood and is not an animal?",
+    "solution": "A pomegranate"
+  },
+  {
+    "question": "What has a heart and is not an animal?",
+    "solution": "An artichoke"
+  },
+  {
+    "question": "What has a head and is not an animal?",
+    "solution": "A match"
+  },
+  {
+    "question": "What has a tail and is not an animal?",
+    "solution": "A kite"
+  },
+  {
+    "question": "What has legs and is not an animal?",
+    "solution": "A chair"
+  },
+  {
+    "question": "What has eyes and is not an animal?",
+    "solution": "A needle"
+  },
+  {
+    "question": "What has a mouth and is not an animal?",
+    "solution": "A bottle"
+  },
+  {
+    "question": "What has teeth and is not an animal?",
+    "solution": "A comb"
+  },
+  {
+    "question": "What has a tongue and is not an animal?",
+    "solution": "A shoe"
+  },
+  {
+    "question": "What has lips and is not an animal?",
+    "solution": "A cup"
+  },
+  {
+    "question": "What thing is it that has wings and does not fly?",
+    "solution": "A theater"
+  },
+  {
+    "question": "What has ears and is not an animal?",
+    "solution": "A cup"
+  },
+  {
+    "question": "What has hands and is not an animal?",
+    "solution": "A clock"
+  },
+  {
+    "question": "What has fingers and is not an animal?",
+    "solution": "A glove"
+  },
+  {
+    "question": "What has nails and is not an animal?",
+    "solution": "A hammer"
+  },
+  {
+    "question": "What has feathers and is not an animal?",
+    "solution": "A pillow"
+  },
+  {
+    "question": "What has wings and is not an animal?",
+    "solution": "A theater"
+  },
+  {
+    "question": "Through the mountains of Jaca walks a mountaineer; he has beards and no arms, he has heads and no feet. What is it?",
+    "solution": "Corn"
+  },
+  {
+    "question": "A white old man with gray hair who has a stiff stem. What is it?",
+    "solution": "Garlic"
+  },
+  {
+    "question": "What has scales and is not an animal?",
+    "solution": "A pineapple"
+  },
+  {
+    "question": "What has a shell and is not an animal?",
+    "solution": "A walnut"
+  },
+  {
+    "question": "What is full of shells but is not an animal?",
+    "solution": "The beach"
+  },
+  {
+    "question": "White am I from the irrigation ditch and I have an animal name; but I have no one to name me, only the dawn of the day. What am I?",
+    "solution": "A dove"
+  },
+  {
+    "question": "It has a round head, without nose, eyes or forehead, and its body is made only of white teeth. What is it?",
+    "solution": "Garlic"
+  },
+  {
+    "question": "What has silk and is not an animal?",
+    "solution": "A tie"
+  },
+  {
+    "question": "What has wool and is not an animal?",
+    "solution": "A sweater"
+  },
+  {
+    "question": "What has leather and is not an animal?",
+    "solution": "A ball"
+  },
+  {
+    "question": "What has ivory and is not an animal?",
+    "solution": "A piano"
+  },
+  {
+    "question": "What has mother-of-pearl and is not an animal?",
+    "solution": "A button"
+  },
+  {
+    "question": "It is tall and is not a tower; it is mass and is not heard. What is it?",
+    "solution": "A mass"
+  },
+  {
+    "question": "Table upon table, plank upon plank, on the table a lady and on the lady a flower. What is it?",
+    "solution": "A bed"
+  },
+  {
+    "question": "What has foam and is not an animal?",
+    "solution": "A wave"
+  },
+  {
+    "question": "What has ice and is not an animal?",
+    "solution": "An ice pop"
+  },
+  {
+    "question": "What has snow and is not an animal?",
+    "solution": "A mountain"
+  },
+  {
+    "question": "What has sand and is not an animal?",
+    "solution": "A desert"
+  },
+  {
+    "question": "What has a beak and is not a bird?",
+    "solution": "A mountain"
+  },
+  {
+    "question": "What has an arm and is not a person?",
+    "solution": "A river"
+  },
+  {
+    "question": "What thing is it that has eyes and does not see?",
+    "solution": "A needle"
+  },
+  {
+    "question": "What thing is it that has a mouth and does not speak?",
+    "solution": "A cave"
+  },
+  {
+    "question": "What thing is it that has teeth and does not bite?",
+    "solution": "A comb"
+  },
+  {
+    "question": "The more they touch it, the bigger it gets. What is it?",
+    "solution": "A hole"
+  },
+  {
+    "question": "What full pitcher weighs less?",
+    "solution": "A pitcher full of holes"
+  },
+  {
+    "question": "I have a body and you do not see me; I am heavy and you do not feel me; without me no living being can live. What am I?",
+    "solution": "The air"
+  },
+  {
+    "question": "It stings and draws no blood. What is it?",
+    "solution": "A flea"
+  },
+  {
+    "question": "A convent full of little fathers and the sacristan of a little stick. What is it?",
+    "solution": "A mouth"
+  },
+  {
+    "question": "A convent with red walls, round friars and the sacristan of a little stick. What is it?",
+    "solution": "A watermelon"
+  },
+  {
+    "question": "A tiny convent, round saints and the sacristan of a little stick. What is it?",
+    "solution": "A pomegranate"
+  },
+  {
+    "question": "A little red old man hanging from a little stick. What is it?",
+    "solution": "A pepper"
+  },
+  {
+    "question": "When tiny, green; when young, red; and when old, wrinkled. What is it?",
+    "solution": "A chili pepper"
+  },
+  {
+    "question": "On a hairy hill there is a Franciscan father who has beards and is not a man, has teeth and does not eat. What is it?",
+    "solution": "Corn"
+  },
+  {
+    "question": "I went to the hill, killed a calf, took a strip from it and it always remained whole. What is it?",
+    "solution": "A cow"
+  },
+  {
+    "question": "I walk along a little path, step on a little string, take a little piece and it always remains whole. What is it?",
+    "solution": "Scissors"
+  },
+  {
+    "question": "In the window I am a lady, on the balcony I am a lady, at the table a courtesan and in the field a farmer. What am I?",
+    "solution": "A rose"
+  },
+  {
+    "question": "Four brothers are: one runs and does not tire, another eats and is not satisfied, another drinks and is not filled and the other moans like a soul in pain. What are they?",
+    "solution": "Fingers"
+  },
+  {
+    "question": "From black parents I was born, I am white by my luck, and I have become so strong that I defeated even men. What am I?",
+    "solution": "Paper"
+  },
+  {
+    "question": "To use me, cover my little eyes, because with open eyes I am useless to everyone. What am I?",
+    "solution": "A needle"
+  },
+  {
+    "question": "With my beak I peck and step; with my rump I throw the lasso. What am I?",
+    "solution": "A bird"
+  },
+  {
+    "question": "I am a key that opens the appetite; fleas do not bite where I peck. What am I?",
+    "solution": "A table"
+  },
+  {
+    "question": "A little red box full of filth. What is it?",
+    "solution": "A tobacco tin"
+  },
+  {
+    "question": "A bird that has no breasts and breeds, gives life to the living and joy to the dead. What is it?",
+    "solution": "A bee"
+  },
+  {
+    "question": "A man died without guilt, the mother was never born; the earth was virgin until the grandson was born. What is it?",
+    "solution": "Abel"
+  },
+  {
+    "question": "I am clear and I await the yolk. What am I?",
+    "solution": "An egg"
+  },
+  {
+    "question": "I am the first in the dawn; I am the second in the sea; in the moon I am the fourth, and in the sun I will not be found. What am I?",
+    "solution": "The letter A"
+  },
+  {
+    "question": "I am the bailiff of the ladies and a singular minister, I go loaded with rods without arresting or punishing. What am I?",
+    "solution": "A fan"
+  },
+  {
+    "question": "Which is the much-mentioned one that is found at the end of life; it finds no place in the world nor has entry in heaven; it is not found in the months and twice in the week?",
+    "solution": "Death"
+  },
+  {
+    "question": "What thing is it that the bigger it is, the smaller it becomes?",
+    "solution": "A shadow"
+  },
+  {
+    "question": "What thing is it that the more it is washed, the dirtier it is?",
+    "solution": "Water"
+  },
+  {
+    "question": "What thing is it that has teeth and is not a comb?",
+    "solution": "A saw"
+  },
+  {
+    "question": "What thing is it that has handles and is not fruit?",
+    "solution": "A pot"
+  },
+  {
+    "question": "What thing is it that has leaves and is not a tree?",
+    "solution": "A book"
+  },
+  {
+    "question": "What thing is it that has roots and is not a plant?",
+    "solution": "A tooth"
+  },
+  {
+    "question": "What thing is it that has a trunk and is not a tree?",
+    "solution": "A body"
+  },
+  {
+    "question": "What thing is it that has branches and is not a tree?",
+    "solution": "A family"
+  },
+  {
+    "question": "What thing is it that has flowers and is not a plant?",
+    "solution": "A garden"
+  },
+  {
+    "question": "What thing is it that has fruits and is not a tree?",
+    "solution": "Work"
+  },
+  {
+    "question": "What thing is it that has seeds and is not a plant?",
+    "solution": "An idea"
+  },
+  {
+    "question": "What thing is it that has earth and is not a planet?",
+    "solution": "A flowerpot"
+  },
+  {
+    "question": "What thing is it that has water and is not a river?",
+    "solution": "A bottle"
+  },
+  {
+    "question": "What thing is it that has fire and is not a flame?",
+    "solution": "A volcano"
+  },
+  {
+    "question": "What thing is it that has air and is not a balloon?",
+    "solution": "A lung"
+  },
+  {
+    "question": "What thing is it that has light and is not a bulb?",
+    "solution": "The sun"
+  },
+  {
+    "question": "What has a head and a tail but no body?",
+    "solution": "A coin"
+  },
+  {
+    "question": "What has a face but no eyes?",
+    "solution": "A clock"
+  },
+  {
+    "question": "What has a hand but no fingers?",
+    "solution": "A clock"
+  },
+  {
+    "question": "What has an eye but no face?",
+    "solution": "A needle"
+  },
+  {
+    "question": "What has a tongue but no mouth?",
+    "solution": "A shoe"
+  },
+  {
+    "question": "What has a tooth but no mouth?",
+    "solution": "A saw"
+  },
+  {
+    "question": "What has a wing but no body?",
+    "solution": "A hospital"
+  },
+  {
+    "question": "What has a wheel but no axle?",
+    "solution": "A wheelbarrow"
+  },
+  {
+    "question": "What has a spring but no winter?",
+    "solution": "A clock"
+  },
+  {
+    "question": "What has a key but no door?",
+    "solution": "A piano"
+  },
+  {
+    "question": "What has a lock but no door?",
+    "solution": "A canal"
+  },
+  {
+    "question": "What has a bridge but no water?",
+    "solution": "A song"
+  },
+  {
+    "question": "What has a bank but no money?",
+    "solution": "A river"
+  },
+  {
+    "question": "What has a current but no water?",
+    "solution": "Electricity"
   }
 ];
 

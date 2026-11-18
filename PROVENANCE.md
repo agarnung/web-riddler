@@ -43,9 +43,10 @@ npm run build
 
 ## English bank audit
 
-The English bank was audited separately: 228 riddles, five groups of duplicate
-questions replaced, the single Spanish leftover replaced, and malformed or clearly
-wrong answers corrected. Tests now enforce unique questions, no Spanish leftovers,
+The English bank was audited separately and expanded to 366 riddles: five groups of
+duplicate questions replaced, the single Spanish leftover replaced, malformed or
+clearly wrong answers corrected, and 138 classic riddles added (including English
+translations of the public-domain Spanish collection). Tests now enforce unique questions, no Spanish leftovers,
 non-empty solutions and no trailing punctuation. A per-entry source review is still
 pending; most entries are traditional folklore riddles, but the source is not yet
 documented entry by entry.

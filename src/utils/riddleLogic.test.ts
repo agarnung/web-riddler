@@ -90,8 +90,8 @@ test('the daily riddle works in Spanish', () => {
   );
 });
 
-test('the English bank has exactly 228 riddles', () => {
-  assert.equal(riddles.length, 228);
+test('the English bank has exactly 366 riddles', () => {
+  assert.equal(riddles.length, 366);
 });
 
 test('the English bank has no duplicate questions', () => {
