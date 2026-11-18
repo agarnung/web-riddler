@@ -197,7 +197,7 @@ export const riddles = [
         "solution": "Your Feet  Footsteps."
     },
     {
-        "question": "Alice is walking throught the forest of forgetfulness. She wants to know what day of the week it is. She stops and asks a lion and a unicorn. Now the lion lies all of the time on Monday, Tuesday, and Wednesday. The unicorn always lies on Thursday, Friday and Saturday.  Alice asks the lion what day it is, he says, \"Well, yesterday was one of my lying days.\" Alice can't figure it out just from the lion's answer so she asks the unicorn and the unicorn says, \"Yesterday was also one of my lying days.\" What day is it?",
+        "question": "Alice is walking through the forest of forgetfulness. She wants to know what day of the week it is. She stops and asks a lion and a unicorn. Now the lion lies all of the time on Monday, Tuesday, and Wednesday. The unicorn always lies on Thursday, Friday and Saturday.  Alice asks the lion what day it is, he says, \"Well, yesterday was one of my lying days.\" Alice can't figure it out just from the lion's answer so she asks the unicorn and the unicorn says, \"Yesterday was also one of my lying days.\" What day is it?",
         "solution": "Thursday."
     },
     {
@@ -913,7 +913,7 @@ export const riddles = [
         "solution": "a chalkboard"
     },
     {
-        "question": "I come at the end of time and at the start of eternitiy. I come four times in every week, but only once in a thousand years. What am I?",
+        "question": "I come at the end of time and at the start of eternity. I come four times in every week, but only once in a thousand years. What am I?",
         "solution": "The letter E."
     }
 ];

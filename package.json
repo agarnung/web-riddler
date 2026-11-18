@@ -8,7 +8,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "@astrojs/svelte": "^5.7.3",
-    "@astrojs/vercel": "^7.8.2"
+    "@astrojs/vercel": "^7.8.2",
+    "test": "tsx --test src/utils/*.test.ts"
   },
   "dependencies": {
     "@astrojs/svelte": "^7.0.4",
@@ -16,5 +17,8 @@
     "@huggingface/inference": "^1.8.0",
     "astro": "^5.1.9",
     "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "tsx": "^4.23.15"
   }
 }

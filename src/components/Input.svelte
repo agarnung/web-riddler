@@ -21,10 +21,10 @@
     isFocused = value.length > 0;  
   }
   
-  /* Allow only letters and apostrophe */
+  /* Allow letters, numbers, accents, apostrophes and hyphens */
   function handleInput(event: Event) {
     const input = (event.target as HTMLInputElement)?.value || '';
-    const filteredInput = input.replace(/[^a-zA-Z'\s]/g, ''); 
+    const filteredInput = input.replace(/[^\p{L}\p{N}'\-\s]/gu, ''); 
     value = filteredInput;
     dispatch('input', value);
   }

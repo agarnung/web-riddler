@@ -6,6 +6,7 @@
   import ProgressBar from "./ProgressBar.svelte";
   import CelebrationPopup from "./CelebrationPopup.svelte";
   import { getRandomRiddle } from "../utils/riddles";
+  import { getDailyRiddle, closeness } from "../utils/riddleLogic";
 
   // @ts-ignore
   // TODO por por qué no lee bien las variables de entorno
@@ -23,6 +24,7 @@
   let intervalId;
   let showCelebrationPopup = false;
   let inputCleared = false;
+  let showSolution = false;
 
   const changeRiddle = () => {
     try {
@@ -33,13 +35,32 @@
       }
       error = "";
       similarity = 0;
+      showSolution = false;
     } catch (err) {
       console.error("Error loading riddle:", err);
       riddle = { question: "Error loading riddle.", solution: "" };
     }
   };
 
-    const evaluateAnswer = async (event: CustomEvent) => {
+    const showDailyRiddle = () => {
+    try {
+      riddle = getDailyRiddle();
+      userInput = "";
+      error = "";
+      similarity = 0;
+      showSolution = false;
+      inputCleared = false;
+    } catch (err) {
+      console.error("Error loading daily riddle:", err);
+      riddle = { question: "Error loading riddle.", solution: "" };
+    }
+  };
+
+  const revealSolution = () => {
+    showSolution = !showSolution;
+  };
+
+  const evaluateAnswer = async (event: CustomEvent) => {
     userInput = event.detail;
     analyzing = true;
     analyzingText = "Analyzing"; 
@@ -81,7 +102,10 @@
       }
     } catch (err) {
       console.error("Error processing the request:", err);
-      error = "Error processing the request.";
+      // The hosted embedding endpoint can be unavailable; fall back to the
+      // deterministic local matcher so the game still works offline.
+      similarity = closeness(userInput, riddle.solution);
+      error = "";
     } finally {
       analyzing = false;
       stopAnalyzingText(); 
@@ -110,7 +134,17 @@
 
   <Input bind:value={userInput} on:send={evaluateAnswer} />
 
-  <ChangeButton {changeRiddle} isDisabled={false} />
+  <div class="actions">
+    <ChangeButton {changeRiddle} isDisabled={false} />
+    <button class="daily-button" on:click={showDailyRiddle}>Daily riddle</button>
+    <button class="solution-button" on:click={revealSolution}>
+      {showSolution ? "Hide solution" : "Show solution"}
+    </button>
+  </div>
+
+  {#if showSolution}
+    <p class="solution-text">Solution: {riddle.solution}</p>
+  {/if}
 
   {#if analyzing}
     <div class="analyzing_popup">{analyzingText}</div> 
@@ -159,6 +193,37 @@
 
   .error-text {
     color: #e74c3c;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+  .daily-button,
+  .solution-button {
+    border: 0;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #2d2d2d;
+    color: #fff;
+    transition: background-color 0.2s;
+  }
+
+  .daily-button:hover,
+  .solution-button:hover {
+    background-color: #555;
+  }
+
+  .solution-text {
+    margin-top: 16px;
+    font-size: 1.05em;
+    color: #2d2d2d;
   }
 
   .analyzing_popup {
