@@ -143,18 +143,18 @@
 </script>
 
 <div class="container">
-  <div class="topbar">
-    <span class="brand">web-riddler</span>
-    <button
-      class="lang-toggle"
-      on:click={toggleLanguage}
-      aria-label={t(lang, "languageLabel")}
-    >
-      {t(lang, "language")}
-    </button>
-  </div>
+  <button
+    class="lang-toggle"
+    on:click={toggleLanguage}
+    aria-label={t(lang, "languageLabel")}
+  >
+    {t(lang, "language")}
+  </button>
 
   <h2>{t(lang, "heading")}</h2>
+  <div class="brand-row">
+    <span class="brand">web-riddler</span>
+  </div>
 
   <RiddleDisplay {riddle} />
 
@@ -206,6 +206,7 @@
 
 <style>
   .container {
+    position: relative;
     width: 100%;
     max-width: 600px;
     margin: 50px auto;
@@ -216,14 +217,14 @@
     text-align: center;
   }
 
-  .topbar {
+  .brand-row {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 12px;
+    justify-content: center;
+    margin: 0 auto 18px;
   }
 
   .brand {
+    display: inline-block;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: lowercase;
@@ -231,6 +232,9 @@
   }
 
   .lang-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
     border: 1px solid #6c5ce7;
     background: transparent;
     color: #6c5ce7;
