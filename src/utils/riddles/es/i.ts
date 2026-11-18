@@ -1,4 +1,4 @@
-import type { Riddle } from "../riddleLogic";
+import type { Riddle } from "../../riddleLogic";
 
 // Lote I: objetos tecnológicos y cotidianos.
 export const riddlesEsI: Riddle[] = [

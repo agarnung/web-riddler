@@ -11,10 +11,10 @@
     "typecheck": "astro check"
   },
   "dependencies": {
-    "@astrojs/svelte": "^7.0.4",
-    "@astrojs/vercel": "^8.0.4",
+    "@astrojs/svelte": "^9.1.6",
+    "@astrojs/vercel": "^11.0.22",
     "@huggingface/inference": "^1.8.0",
-    "astro": "^5.1.9",
+    "astro": "^7.4.12",
     "dotenv": "^16.4.7"
   },
   "devDependencies": {
@@ -22,5 +22,8 @@
     "@types/node": "^26.6.6",
     "tsx": "^4.23.15",
     "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=22.23.4"
   }
 }

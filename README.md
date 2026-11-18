@@ -34,7 +34,7 @@ npm run dev       # local Astro dev server
 ```
 
 # Requirements:
-* [Node.js](https://nodejs.org/) ([for Linux](https://nodejs.org/en/download)) (recommended version: 16 or higher).
+* [Node.js](https://nodejs.org/) ([for Linux](https://nodejs.org/en/download)) (required: 22.23.4 or higher, for Astro 7).
 * [npm](https://docs.npmjs.com/cli/v8/commands/npm-install) or [yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable): Package managers included with Node.js.
 * [VS Code](https://code.visualstudio.com/docs/setup/setup-overview).
 

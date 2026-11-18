@@ -21,9 +21,5 @@ export default defineConfig({
     },
   },
 
-  vite: {
-    define: {
-      'process.env': process.env, // Esto asegura que las variables de entorno estén disponibles
-    },
-  }, 
+
 });
