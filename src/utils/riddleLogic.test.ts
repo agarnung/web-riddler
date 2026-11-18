@@ -8,6 +8,7 @@ import {
   riddleIndexForDate,
 } from './riddleLogic.ts';
 import { riddlesEs } from './riddles.es.ts';
+import { riddles } from './riddles.ts';
 
 test('the riddle bank is not empty', () => {
   assert.ok(getRiddleCount() > 0);
@@ -87,4 +88,31 @@ test('the daily riddle works in Spanish', () => {
     getDailyRiddle('es', date),
     getDailyRiddle('es', date)
   );
+});
+
+test('the English bank has exactly 228 riddles', () => {
+  assert.equal(riddles.length, 228);
+});
+
+test('the English bank has no duplicate questions', () => {
+  const seen = new Set<string>();
+  for (const riddle of riddles) {
+    const key = riddle.question.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+    assert.ok(!seen.has(key), `duplicate English question: ${riddle.question}`);
+    seen.add(key);
+  }
+});
+
+test('the English bank has no Spanish leftovers', () => {
+  for (const riddle of riddles) {
+    assert.ok(!/[¿¡]|\bqué\b|\bsoy\b/i.test(riddle.question), `Spanish leftover: ${riddle.question}`);
+  }
+});
+
+test('every English solution is non-empty and clean', () => {
+  for (const riddle of riddles) {
+    assert.ok(riddle.solution.trim().length > 0);
+    assert.ok(!/\.$/.test(riddle.solution), `trailing period: ${riddle.solution}`);
+    assert.ok(!/lolz|olbiously|Got milk/i.test(riddle.solution), `bad solution: ${riddle.solution}`);
+  }
 });

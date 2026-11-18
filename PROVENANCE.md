@@ -35,7 +35,17 @@ two categories must be replaced before publishing.
 
 ```bash
 cd /opt/proyectos_personales/web-riddler
-npm test          # 10 tests, including 366 + no duplicate questions
+npm test          # 17 tests: 366 Spanish, 228 English, duplicates and audit checks
 npm run typecheck
 npm run build
 ```
+
+
+## English bank audit
+
+The English bank was audited separately: 228 riddles, five groups of duplicate
+questions replaced, the single Spanish leftover replaced, and malformed or clearly
+wrong answers corrected. Tests now enforce unique questions, no Spanish leftovers,
+non-empty solutions and no trailing punctuation. A per-entry source review is still
+pending; most entries are traditional folklore riddles, but the source is not yet
+documented entry by entry.
