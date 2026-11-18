@@ -15,8 +15,11 @@ The Spanish bank is a curated mix. It is **not** machine-translated wholesale.
 
 ## What is still pending
 
-- A one-by-one review of the 328 new entries to replace any riddle that is too
-  trivial, too close to a translation, or not clearly traditional/original.
+- A one-by-one review of the remaining new entries. The first batch is already
+  replaced: the 41 number-series riddles (lote G) and the 42 number/measure
+  riddles (lote C) are now classics from the public-domain Wikisource
+  collection. The most formulaic entries in F and I have also been replaced by
+  classics with unambiguous answers; the remaining entries are under review.
 - Add a `source` field per entry if a judge or a user needs an exact citation.
 - The current automated checks cover: exactly 366 entries, no duplicate questions,
   non-empty questions and solutions, and deterministic daily selection.

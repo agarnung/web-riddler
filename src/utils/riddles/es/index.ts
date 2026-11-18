@@ -15,11 +15,11 @@ const withSource = (list: Riddle[], source: string): Riddle[] =>
 export const riddlesEs: Riddle[] = [
   ...withSource(riddlesEsA, 'web-riddler (propio)'),
   ...withSource(riddlesEsB, 'tradicional / adaptado'),
-  ...withSource(riddlesEsC, 'tradicional / cultura general'),
+  ...withSource(riddlesEsC, 'tradicional / Wikisource'),
   ...withSource(riddlesEsD, 'tradicional / lógica'),
   ...withSource(riddlesEsE, 'original'),
   ...withSource(riddlesEsF, 'tradicional / clásicos'),
-  ...withSource(riddlesEsG, 'original / serie numérica'),
+  ...withSource(riddlesEsG, 'tradicional / Wikisource'),
   ...withSource(riddlesEsH, 'tradicional / cultura general'),
   ...withSource(riddlesEsI, 'original'),
 ];
