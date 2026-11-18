@@ -5,7 +5,20 @@ import Riddles from '../components/Riddles.svelte';
 ---
 
 <Layout>
-  <Riddles client:load />
+  <div class="page-center">
+    <Riddles client:load />
+  </div>
   <Landscape />
 </Layout>
+
+<style>
+  .page-center {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 0;
+    box-sizing: border-box;
+  }
+</style>
 

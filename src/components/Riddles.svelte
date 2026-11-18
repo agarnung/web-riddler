@@ -213,7 +213,7 @@
     position: relative;
     width: 100%;
     max-width: 600px;
-    margin: 50px auto;
+    margin: 0 auto;
     padding: 20px;
     background-color: #f5f5f5;
     border-radius: 10px;
@@ -244,7 +244,7 @@
     color: #6c5ce7;
     border-radius: 999px;
     padding: 6px 14px;
-    font-weight: 700;
+    font-weight: 400;
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s;
   }
@@ -296,7 +296,7 @@
     border-radius: 6px;
     padding: 10px 20px;
     font-size: 1em;
-    font-weight: 600;
+    font-weight: 400;
     cursor: pointer;
     background-color: #6b7280;
     color: #fff;
