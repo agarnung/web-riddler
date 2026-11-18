@@ -1,10 +1,11 @@
 <script lang="ts">
   export let changeRiddle = () => {};
   export let isDisabled = false;
+  export let label = "Next Riddle";
 </script>
 
 <button on:click={changeRiddle} disabled={isDisabled} class="riddle-button">
-  Next Riddle
+  {label}
 </button>
 
 <style>

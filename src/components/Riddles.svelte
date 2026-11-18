@@ -6,7 +6,12 @@
   import ProgressBar from "./ProgressBar.svelte";
   import CelebrationPopup from "./CelebrationPopup.svelte";
   import { getRandomRiddle } from "../utils/riddles";
-  import { getDailyRiddle, closeness } from "../utils/riddleLogic";
+  import {
+    getDailyRiddle,
+    closeness,
+    type Riddle,
+  } from "../utils/riddleLogic";
+  import { t, type Lang } from "../utils/i18n";
 
   // @ts-ignore
   // TODO por por qué no lee bien las variables de entorno
@@ -17,7 +22,9 @@
 
   let userInput = "";
   let error = "";
-  let riddle = { question: "", solution: "" };
+  let riddle: Riddle = { question: "", solution: "" };
+  let lang: Lang = "en";
+  let usedFallback = false;
   let similarity = 0;
   let analyzing = false;
   let analyzingText = "Analyzing";
@@ -28,7 +35,8 @@
 
   const changeRiddle = () => {
     try {
-      riddle = getRandomRiddle();
+      riddle = getRandomRiddle(lang);
+      usedFallback = false;
       if (!showCelebrationPopup) { 
         userInput = ""; 
         inputCleared = false;
@@ -44,7 +52,8 @@
 
     const showDailyRiddle = () => {
     try {
-      riddle = getDailyRiddle();
+      riddle = getDailyRiddle(lang);
+      usedFallback = false;
       userInput = "";
       error = "";
       similarity = 0;
@@ -58,6 +67,11 @@
 
   const revealSolution = () => {
     showSolution = !showSolution;
+  };
+
+  const toggleLanguage = () => {
+    lang = lang === "en" ? "es" : "en";
+    changeRiddle();
   };
 
   const evaluateAnswer = async (event: CustomEvent) => {
@@ -105,6 +119,7 @@
       // The hosted embedding endpoint can be unavailable; fall back to the
       // deterministic local matcher so the game still works offline.
       similarity = closeness(userInput, riddle.solution);
+      usedFallback = true;
       error = "";
     } finally {
       analyzing = false;
@@ -128,34 +143,61 @@
 </script>
 
 <div class="container">
-  <h2>I'm giving you a riddle, try to guess it...</h2>
+  <div class="topbar">
+    <span class="brand">web-riddler</span>
+    <button
+      class="lang-toggle"
+      on:click={toggleLanguage}
+      aria-label={t(lang, "languageLabel")}
+    >
+      {t(lang, "language")}
+    </button>
+  </div>
+
+  <h2>{t(lang, "heading")}</h2>
 
   <RiddleDisplay {riddle} />
 
-  <Input bind:value={userInput} on:send={evaluateAnswer} />
+  <Input
+    bind:value={userInput}
+    on:send={evaluateAnswer}
+    placeholder={t(lang, "placeholder")}
+  />
 
   <div class="actions">
-    <ChangeButton {changeRiddle} isDisabled={false} />
-    <button class="daily-button" on:click={showDailyRiddle}>Daily riddle</button>
+    <ChangeButton
+      {changeRiddle}
+      isDisabled={false}
+      label={t(lang, "nextRiddle")}
+    />
+    <button class="daily-button" on:click={showDailyRiddle}>
+      {t(lang, "dailyRiddle")}
+    </button>
     <button class="solution-button" on:click={revealSolution}>
-      {showSolution ? "Hide solution" : "Show solution"}
+      {showSolution ? t(lang, "hideSolution") : t(lang, "showSolution")}
     </button>
   </div>
 
   {#if showSolution}
-    <p class="solution-text">Solution: {riddle.solution}</p>
+    <p class="solution-text">{t(lang, "solution")}: {riddle.solution}</p>
   {/if}
 
   {#if analyzing}
-    <div class="analyzing_popup">{analyzingText}</div> 
+    <div class="analyzing_popup">{t(lang, "analyzing")}{analyzingText.replace(/^Analyzing/, "")}</div>
   {/if}
 
-  <CelebrationPopup visible={showCelebrationPopup} message="🎉 Correct! 🎉" />
+  <CelebrationPopup
+    visible={showCelebrationPopup}
+    message={t(lang, "correct")}
+  />
 
   {#if error}
-    <p class="error-text">Error: {error}</p>
+    <p class="error-text">{t(lang, "error")}: {error}</p>
   {:else if similarity > 0}
-    <p class="response-text">Closeness: {similarity.toFixed(0)}%</p>
+    <p class="response-text">{t(lang, "closeness")}: {similarity.toFixed(0)}%</p>
+    {#if usedFallback}
+      <p class="fallback-text">{t(lang, "offline")}</p>
+    {/if}
   {/if}
 
   <ProgressBar {similarity} />
@@ -174,10 +216,46 @@
     text-align: center;
   }
 
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  .brand {
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+    color: #6c5ce7;
+  }
+
+  .lang-toggle {
+    border: 1px solid #6c5ce7;
+    background: transparent;
+    color: #6c5ce7;
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  .lang-toggle:hover {
+    background: #6c5ce7;
+    color: #fff;
+  }
+
   h2 {
     font-size: 1.35em;
     margin-bottom: 20px;
     color: #333;
+  }
+
+  .fallback-text {
+    margin-top: 4px;
+    font-size: 0.85em;
+    color: #7f8c8d;
   }
 
   .response-text,

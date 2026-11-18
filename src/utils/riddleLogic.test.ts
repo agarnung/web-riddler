@@ -7,6 +7,7 @@ import {
   normalizeAnswer,
   riddleIndexForDate,
 } from './riddleLogic.ts';
+import { riddlesEs } from './riddles.es.ts';
 
 test('the riddle bank is not empty', () => {
   assert.ok(getRiddleCount() > 0);
@@ -40,11 +41,30 @@ test('unrelated answers score low', () => {
 
 test('the daily riddle is deterministic for a date', () => {
   const date = new Date('2026-12-08T12:00:00Z');
-  assert.deepEqual(getDailyRiddle(date), getDailyRiddle(date));
+  assert.deepEqual(getDailyRiddle('en', date), getDailyRiddle('en', date));
 });
 
 test('consecutive dates map to consecutive riddle indexes', () => {
   assert.equal(riddleIndexForDate('2026-01-01'), 0);
   assert.equal(riddleIndexForDate('2026-01-02'), 1);
   assert.equal(riddleIndexForDate('2026-01-03'), 2);
+});
+
+
+test('the Spanish bank has no duplicate questions', () => {
+  const seen = new Set<string>();
+  for (const riddle of riddlesEs) {
+    const key = riddle.question.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+    assert.ok(!seen.has(key), `duplicate Spanish question: ${riddle.question}`);
+    seen.add(key);
+  }
+  assert.ok(riddlesEs.length > 0);
+});
+
+test('the daily riddle works in Spanish', () => {
+  const date = new Date('2026-12-08T12:00:00Z');
+  assert.deepEqual(
+    getDailyRiddle('es', date),
+    getDailyRiddle('es', date)
+  );
 });

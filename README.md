@@ -6,6 +6,11 @@
 
 A web game where an LLM riddles you. Play it [here](https://web-riddler.vercel.app/).
 
+- **ES/EN toggle** for the interface and a curated Spanish riddle bank.
+- **Local closeness fallback** when the Hugging Face embedding endpoint is not
+  configured or fails, so the game keeps working.
+- **Daily riddle** deterministic by date and a **Show solution** button.
+
 __In progress...__
 
 * **Astro**: A framework for building fast websites (combined with Svelte).
@@ -13,6 +18,16 @@ __In progress...__
 * **TypeScript**: A superset of JavaScript that adds static typing.
 * **Tailwind CSS**: A utility-first CSS framework.
 * **Custom API**: Contains an API in `src/pages/api/embedding.ts`.
+
+# Commands
+
+```bash
+npm install
+npm test          # 10 unit tests for the matcher and daily selection
+npm run typecheck # Astro type check
+npm run build     # production build for Vercel
+npm run dev       # local Astro dev server
+```
 
 # Requirements:
 * [Node.js](https://nodejs.org/) ([for Linux](https://nodejs.org/en/download)) (recommended version: 16 or higher).

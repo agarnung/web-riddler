@@ -1,4 +1,6 @@
 import { riddles } from './riddles';
+import { riddlesEs } from './riddles.es';
+import type { Lang } from './i18n';
 
 export type Riddle = {
   question: string;
@@ -89,15 +91,22 @@ export const closeness = (input: string, solution: string): number => {
   return Math.round(Math.max(0, Math.min(1, best)) * 100);
 };
 
-export const riddleIndexForDate = (date: string): number => {
+export const bankFor = (lang: Lang = 'en'): Riddle[] =>
+  lang === 'es' ? riddlesEs : riddles;
+
+export const riddleIndexForDate = (date: string, lang: Lang = 'en'): number => {
   const ms = Date.parse(`${date}T00:00:00Z`);
   if (!Number.isFinite(ms)) return 0;
-  return Math.abs(Math.floor((ms - EPOCH_MS) / DAY_MS)) % riddles.length;
+  return Math.abs(Math.floor((ms - EPOCH_MS) / DAY_MS)) % bankFor(lang).length;
 };
 
-export const getDailyRiddle = (now: Date = new Date()): Riddle => {
+export const getDailyRiddle = (
+  lang: Lang = 'en',
+  now: Date = new Date()
+): Riddle => {
   const date = now.toISOString().slice(0, 10);
-  return riddles[riddleIndexForDate(date)] ?? riddles[0]!;
+  const bank = bankFor(lang);
+  return bank[riddleIndexForDate(date, lang)] ?? bank[0]!;
 };
 
-export const getRiddleCount = (): number => riddles.length;
+export const getRiddleCount = (lang: Lang = 'en'): number => bankFor(lang).length;

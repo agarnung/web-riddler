@@ -1,13 +1,17 @@
 export async function getEmbeddings(text: string): Promise<number[]> {
   try {
-    const response = await fetch('https://api-inference.huggingface.co/pipeline/feature-extraction/sentence-transformers/all-MiniLM-L6-v2', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${process.env.HUGGING_FACE_TOKEN}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ inputs: text }),
-    });
+    const response = await fetch(
+      'https://api-inference.huggingface.co/pipeline/feature-extraction/sentence-transformers/all-MiniLM-L6-v2',
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${process.env.HUGGING_FACE_TOKEN}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ inputs: text }),
+        signal: AbortSignal.timeout(8000),
+      }
+    );
 
 	if (!response.ok) {
 	  const errorText = await response.text();
@@ -28,7 +32,7 @@ export async function getEmbeddings(text: string): Promise<number[]> {
 
     throw new Error("Unexpected response format. Full response: " + JSON.stringify(result));
   } catch (error) {
-    console.error('Error extracting features:', error.message);
+    console.error('Error extracting features:', error instanceof Error ? error.message : String(error));
     throw error;
   }
 }

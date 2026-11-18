@@ -2,23 +2,53 @@
 import type { APIRoute } from 'astro';
 import { getEmbeddings } from '../../lib/embeddingService';
 import { cosineSimilarity } from '../../utils/distanceCalculator';
+import { closeness } from '../../utils/riddleLogic';
+
+const json = (body: unknown, status = 200): Response =>
+  new Response(JSON.stringify(body), {
+    status,
+    headers: { 'Content-Type': 'application/json' },
+  });
 
 export const POST: APIRoute = async ({ request }) => {
+  let userInput = '';
+  let solution = '';
+
   try {
-    const { userInput, solution } = await request.json();
+    const body = (await request.json()) as {
+      userInput?: unknown;
+      solution?: unknown;
+    };
+    userInput = typeof body.userInput === 'string' ? body.userInput : '';
+    solution = typeof body.solution === 'string' ? body.solution : '';
+  } catch {
+    return json({ error: 'Invalid JSON body.' }, 400);
+  }
 
-    if (!userInput || !solution) {
-      return new Response(JSON.stringify({ error: 'Both userInput and solution are required.' }), { status: 400 });
-    }
+  if (!userInput.trim() || !solution.trim()) {
+    return json({ error: 'Both userInput and solution are required.' }, 400);
+  }
 
-    const userVector = await getEmbeddings(userInput);
-    const solutionVector = await getEmbeddings(solution);
+  // The local matcher is deterministic and needs no token or network. Use it
+  // directly when the embedding endpoint is not configured, and as a fallback
+  // whenever Hugging Face is unavailable (cold start, quota, 5xx, timeout).
+  const local = closeness(userInput, solution);
 
+  if (!process.env.HUGGING_FACE_TOKEN) {
+    console.warn('HUGGING_FACE_TOKEN is not set; using the local matcher.');
+    return json({ similarity: local, fallback: true, reason: 'no-token' });
+  }
+
+  try {
+    const [userVector, solutionVector] = await Promise.all([
+      getEmbeddings(userInput),
+      getEmbeddings(solution),
+    ]);
     const similarity = cosineSimilarity(userVector, solutionVector);
-
-    return new Response(JSON.stringify({ similarity }), { status: 200 });
+    return json({ similarity, fallback: false });
   } catch (error) {
-    console.error('Error in evaluate API:', error);
-    return new Response(JSON.stringify({ error: 'Error processing the request' }), { status: 500 });
+    const message = error instanceof Error ? error.message : String(error);
+    console.error('Embedding API failed; using the local matcher:', message);
+    return json({ similarity: local, fallback: true, reason: 'embedding-error' });
   }
 };
