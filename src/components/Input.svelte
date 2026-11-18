@@ -21,11 +21,10 @@
     isFocused = value.length > 0;  
   }
   
-  /* Allow letters, numbers, accents, apostrophes and hyphens */
+  // Let the user type accents and any other characters; the backend
+  // normalises and validates the answer.
   function handleInput(event: Event) {
-    const input = (event.target as HTMLInputElement)?.value || '';
-    const filteredInput = input.replace(/[^\p{L}\p{N}'\-\s]/gu, ''); 
-    value = filteredInput;
+    value = (event.target as HTMLInputElement)?.value || '';
     dispatch('input', value);
   }
 
