@@ -198,7 +198,7 @@
   {#if error}
     <p class="error-text">{t(lang, "error")}: {error}</p>
   {:else if hasEvaluated}
-    <p class="response-text">{t(lang, "closeness")}: {similarity.toFixed(0)}%</p>
+    <p class="response-text">{t(lang, "closeness")}: {similarity.toFixed(0)} %</p>
     {#if usedFallback}
       <p class="fallback-text">{t(lang, "offline")}</p>
     {/if}
