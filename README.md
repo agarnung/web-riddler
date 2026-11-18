@@ -6,6 +6,12 @@
 
 A web game where an LLM riddles you. Play it [here](https://web-riddler.vercel.app/).
 
+## Screenshots
+
+| English | Español |
+| --- | --- |
+| ![web-riddler English](assets/screenshots/web-riddler-en.png) | ![web-riddler Español](assets/screenshots/web-riddler-es.png) |
+
 - **366 Spanish riddles** (365 normal + leap day) in `src/utils/riddles/es/`,
   curated from traditional/public-domain riddles and original ones.
 - Provenance and pending review: [`PROVENANCE.md`](PROVENANCE.md).
