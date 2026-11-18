@@ -5,6 +5,7 @@ import type { Lang } from './i18n';
 export type Riddle = {
   question: string;
   solution: string;
+  source?: string;
 };
 
 const DAY_MS = 86_400_000;

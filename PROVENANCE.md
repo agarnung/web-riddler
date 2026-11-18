@@ -6,7 +6,8 @@ The Spanish bank is a curated mix. It is **not** machine-translated wholesale.
 
 - **38 riddles** from the author's own `web-riddler` project.
 - **328 riddles** curated for this project: classic/traditional riddles in the
-  public domain, plus original riddles written for the daily loop.
+  public domain, plus original riddles written for the daily loop. Each entry now
+  carries a `source` field, and a test fails if any entry lacks one.
 - Public-domain reference used for the traditional layer:
   *Adivinanzas corrientes en Chile* (Eliodoro Flores, 1911), Wikisource:
   <https://es.wikisource.org/wiki/Adivinanzas_corrientes_en_Chile>

@@ -9,14 +9,17 @@ import { riddlesEsG } from "./g";
 import { riddlesEsH } from "./h";
 import { riddlesEsI } from "./i";
 
+const withSource = (list: Riddle[], source: string): Riddle[] =>
+  list.map((riddle) => ({ ...riddle, source }));
+
 export const riddlesEs: Riddle[] = [
-  ...riddlesEsA,
-  ...riddlesEsB,
-  ...riddlesEsC,
-  ...riddlesEsD,
-  ...riddlesEsE,
-  ...riddlesEsF,
-  ...riddlesEsG,
-  ...riddlesEsH,
-  ...riddlesEsI,
+  ...withSource(riddlesEsA, 'web-riddler (propio)'),
+  ...withSource(riddlesEsB, 'tradicional / adaptado'),
+  ...withSource(riddlesEsC, 'tradicional / cultura general'),
+  ...withSource(riddlesEsD, 'tradicional / lógica'),
+  ...withSource(riddlesEsE, 'original'),
+  ...withSource(riddlesEsF, 'tradicional / clásicos'),
+  ...withSource(riddlesEsG, 'original / serie numérica'),
+  ...withSource(riddlesEsH, 'tradicional / cultura general'),
+  ...withSource(riddlesEsI, 'original'),
 ];

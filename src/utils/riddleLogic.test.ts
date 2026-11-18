@@ -55,6 +55,12 @@ test('the Spanish bank has exactly 366 riddles', () => {
   assert.equal(riddlesEs.length, 366);
 });
 
+test('every Spanish riddle documents a source', () => {
+  for (const riddle of riddlesEs) {
+    assert.ok(riddle.source && riddle.source.length > 0, `missing source: ${riddle.question}`);
+  }
+});
+
 test('no trivially short Spanish riddle', () => {
   for (const riddle of riddlesEs) {
     assert.ok(riddle.question.length >= 12, `too short: ${riddle.question}`);
