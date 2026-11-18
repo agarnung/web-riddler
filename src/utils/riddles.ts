@@ -666,8 +666,8 @@ export const riddles = [
     "solution": "A Joke!"
   },
   {
-    "question": "what is perfect, pretty, and smart?",
-    "solution": "Anna"
+    "question": "What has a cover but no pages?",
+    "solution": "A bed"
   },
   {
     "question": "{ I GO UP AND DOWN.... BUT NEVER MOVE. WHO AM I?",

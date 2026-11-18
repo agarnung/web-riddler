@@ -50,3 +50,11 @@ translations of the public-domain Spanish collection). Tests now enforce unique 
 non-empty solutions and no trailing punctuation. A per-entry source review is still
 pending; most entries are traditional folklore riddles, but the source is not yet
 documented entry by entry.
+
+
+## Riddle quality review
+
+The Spanish bank was reviewed for non-riddle trivia. The 90 entries that were
+definitions or cultural questions (for example "What is the smallest country?") were
+replaced with actual riddles. The English "Anna" joke was also replaced in this
+project and in the Daily Riddler contest bank.
