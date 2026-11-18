@@ -6,6 +6,10 @@
 
 A web game where an LLM riddles you. Play it [here](https://web-riddler.vercel.app/).
 
+- **366 Spanish riddles** (365 normal + leap day) in `src/utils/riddles/es/`,
+  curated from traditional/public-domain riddles and original ones.
+- Provenance and pending review: [`PROVENANCE.md`](PROVENANCE.md).
+
 - **ES/EN toggle** for the interface and a curated Spanish riddle bank.
 - **Local closeness fallback** when the Hugging Face embedding endpoint is not
   configured or fails, so the game keeps working.

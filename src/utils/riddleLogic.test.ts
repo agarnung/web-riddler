@@ -51,6 +51,20 @@ test('consecutive dates map to consecutive riddle indexes', () => {
 });
 
 
+test('the Spanish bank has exactly 366 riddles', () => {
+  assert.equal(riddlesEs.length, 366);
+});
+
+test('no trivially short Spanish riddle', () => {
+  for (const riddle of riddlesEs) {
+    assert.ok(riddle.question.length >= 12, `too short: ${riddle.question}`);
+    assert.ok(
+      riddle.question.trim().split(/\s+/).length >= 3,
+      `too few words: ${riddle.question}`
+    );
+  }
+});
+
 test('the Spanish bank has no duplicate questions', () => {
   const seen = new Set<string>();
   for (const riddle of riddlesEs) {
