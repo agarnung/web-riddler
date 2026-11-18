@@ -157,17 +157,25 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
   }
 
-  .input-field:focus ~ .send-button {
-    filter: none;
+  .send-button:hover:not(:disabled) {
+    background: #5b4bd5;
+    box-shadow: 0 2px 8px rgba(108, 92, 231, 0.35);
   }
 
-  .send-button:not(:hover) {
-    background: #ccc;
+  .send-button:active:not(:disabled) {
+    background: #4c3bc7;
+    transform: translateY(-50%) scale(0.94);
+    box-shadow: none;
+  }
+
+  .send-button:disabled {
+    background: #bdbdbd;
+    color: #f5f5f5;
     cursor: not-allowed;
-    filter: blur(0.5px);
+    box-shadow: none;
   }
 
   .material-icons {
